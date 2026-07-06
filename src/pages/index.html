@@ -29,13 +29,112 @@
       </nav>
     </header>
 
-    <div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad alias rem
-        quos reiciendis. Repellendus nihil officia, tenetur sed molestiae
-        aliquid dolor ducimus autem culpa fugiat. Sit enim quod mollitia
-        laborum.
-      </p>
+    <div id="filters">
+        <label for="filterMarca">Marca</label>
+        <select id="filterMarca" class="filterSelect">
+            <option value="">-- Selecionar --</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Chevrolet">Chevrolet</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="BYD">BYD</option>
+            <option value="Fiat">Fiat</option>
+        </select>
+        
+        <label for="filterModelo">Modelo</label>
+        <select id="filterModelo" class="filterSelect">
+            <option value="">-- Selecionar --</option>
+            <option value="Corolla">Corolla</option>
+            <option value="Onix">Onix</option>
+            <option value="HB20">HB20</option>
+            <option value="Celta">Celta</option>
+            <option value="Dolphin">Dolphin</option>
+            <option value="Uno">Uno</option>
+        </select>
+        
+        <label for="filterEstado">Estado</label>
+        <select id="filterEstado" class="filterSelect">
+            <option value="">-- Selecionar --</option>
+            <option value="SP">São Paulo (SP)</option>
+            <option value="RJ">Rio de Janeiro (RJ)</option>
+            <option value="MG">Minas Gerais (MG)</option>
+            <option value="DF">Distrito Federal (DF)</option>
+            <option value="BA">Bahia (BA)</option>
+            <option value="PR">Paraná (PR)</option>
+        </select>
+        
+        <label for="filterCidade">Cidade</label>
+        <select id="filterCidade" class="filterSelect" disabled>
+            <option value="">-- Selecionar Estado --</option>
+        </select>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <img src="../assets/images/corolla.jpg" alt="Toyota Corolla" class="cardImage">
+            <div class="cardInfo">
+                <div class="cardHeader">
+                    <h3 class="cardMarcaModelo">Toyota Corolla</h3>
+                    <span class="cardAno">2020</span>
+                </div>
+                <p class="cardCidade"><i class="fa-solid fa-map-pin"></i> São Paulo, SP</p>
+                <p class="cardValor">R$ 85.000,00</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="../assets/images/onix.jpg" alt="Chevrolet Onix" class="cardImage">
+            <div class="cardInfo">
+                <div class="cardHeader">
+                    <h3 class="cardMarcaModelo">Chevrolet Onix</h3>
+                    <span class="cardAno">2021</span>
+                </div>
+                <p class="cardCidade"><i class="fa-solid fa-map-pin"></i> Rio de Janeiro, RJ</p>
+                <p class="cardValor">R$ 75.000,00</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="../assets/images/hyundai.jpg" alt="Hyundai" class="cardImage">
+            <div class="cardInfo">
+                <div class="cardHeader">
+                    <h3 class="cardMarcaModelo">Hyundai HB20</h3>
+                    <span class="cardAno">2019</span>
+                </div>
+                <p class="cardCidade"><i class="fa-solid fa-map-pin"></i> Belo Horizonte, MG</p>
+                <p class="cardValor">R$ 65.000,00</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="../assets/images/celta.jpg" alt="Chevrolet Celta" class="cardImage">
+            <div class="cardInfo">
+                <div class="cardHeader">
+                    <h3 class="cardMarcaModelo">Chevrolet Celta</h3>
+                    <span class="cardAno">2018</span>
+                </div>
+                <p class="cardCidade"><i class="fa-solid fa-map-pin"></i> Brasília, DF</p>
+                <p class="cardValor">R$ 38.000,00</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="../assets/images/byd-dolphin.jpg" alt="BYD Dolphin" class="cardImage">
+            <div class="cardInfo">
+                <div class="cardHeader">
+                    <h3 class="cardMarcaModelo">BYD Dolphin</h3>
+                    <span class="cardAno">2022</span>
+                </div>
+                <p class="cardCidade"><i class="fa-solid fa-map-pin"></i> Salvador, BA</p>
+                <p class="cardValor">R$ 95.000,00</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="../assets/images/uno.jpg" alt="Fiat Uno" class="cardImage">
+            <div class="cardInfo">
+                <div class="cardHeader">
+                    <h3 class="cardMarcaModelo">Fiat Uno</h3>
+                    <span class="cardAno">2017</span>
+                </div>
+                <p class="cardCidade"><i class="fa-solid fa-map-pin"></i> Curitiba, PR</p>
+                <p class="cardValor">R$ 42.000,00</p>
+            </div>
+        </div>
     </div>
   </body>
 </html>
