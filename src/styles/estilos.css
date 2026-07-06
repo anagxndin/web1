@@ -1,0 +1,106 @@
+* {font-family: Roboto, sans-serif;}
+
+:root {
+    --black: #252422;
+    --text-color-white: #fffcf2;
+    --background-white: #e0e1dd;
+    --orange: #eb5e28;
+}
+
+#logo {
+    padding: 0.5rem;
+    font-weight: bold;
+    color: var(--text-color-white);
+    background-color: var(--orange);
+    text-align: center;
+    margin: 0;
+    height: auto;
+}
+
+#menuIcon {
+    height: 2rem;
+    width: 2rem;
+    color: var(--text-color-white);
+    background-color: var(--black);
+    padding: none;
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+    background: none;
+    box-shadow: none;
+}
+
+#homeBody {
+    background-color: var(--background-white);
+}
+
+.mainHeader{
+    background-color: var(--black);
+    color: var(--text-color-white);
+    height: 3rem;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 2rem;
+    position: relative;
+    gap: 1rem;
+}
+
+/* Dropdown Menu Styles */
+.dropdownMenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--black);
+    width: 100%;
+    flex-direction: column;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.dropdownMenu.active {
+    display: flex;
+}
+
+.dropdownItem {
+    padding: 1rem 2rem;
+    color: var(--text-color-white);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(235, 94, 40, 0.2);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdownItem:hover {
+    background-color: var(--orange);
+    color: var(--black);
+}
+
+.dropdownItem:last-child {
+    border-bottom: none;
+}
+
+#dropdownToggle {
+    z-index: 1001;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.cards image {
+    width: 5rem;
+    height: auto;
+    border-radius: 10px;
+}
