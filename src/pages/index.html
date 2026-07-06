@@ -30,42 +30,54 @@
     </header>
 
     <div id="filters">
-        <label for="filterMarca">Marca</label>
-        <select id="filterMarca" class="filterSelect">
-            <option value="">-- Selecionar --</option>
-            <option value="Toyota">Toyota</option>
-            <option value="Chevrolet">Chevrolet</option>
-            <option value="Hyundai">Hyundai</option>
-            <option value="BYD">BYD</option>
-            <option value="Fiat">Fiat</option>
-        </select>
+        <div class="filterGroup">
+            <label for="filterMarca" class="filterLabel">Filtrar por Marca</label>
+            <select id="filterMarca" class="filterSelect">
+                <option value="">Filtrar por Marca</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Hyundai">Hyundai</option>
+                <option value="BYD">BYD</option>
+                <option value="Fiat">Fiat</option>
+            </select>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
         
-        <label for="filterModelo">Modelo</label>
-        <select id="filterModelo" class="filterSelect">
-            <option value="">-- Selecionar --</option>
-            <option value="Corolla">Corolla</option>
-            <option value="Onix">Onix</option>
-            <option value="HB20">HB20</option>
-            <option value="Celta">Celta</option>
-            <option value="Dolphin">Dolphin</option>
-            <option value="Uno">Uno</option>
-        </select>
+        <div class="filterGroup">
+            <label for="filterModelo" class="filterLabel">Filtrar por Modelo</label>
+            <select id="filterModelo" class="filterSelect">
+                <option value="">Filtrar por Modelo</option>
+                <option value="Corolla">Corolla</option>
+                <option value="Onix">Onix</option>
+                <option value="HB20">HB20</option>
+                <option value="Celta">Celta</option>
+                <option value="Dolphin">Dolphin</option>
+                <option value="Uno">Uno</option>
+            </select>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
         
-        <label for="filterEstado">Estado</label>
-        <select id="filterEstado" class="filterSelect">
-            <option value="">-- Selecionar --</option>
-            <option value="SP">São Paulo (SP)</option>
-            <option value="RJ">Rio de Janeiro (RJ)</option>
-            <option value="MG">Minas Gerais (MG)</option>
-            <option value="DF">Distrito Federal (DF)</option>
-            <option value="BA">Bahia (BA)</option>
-            <option value="PR">Paraná (PR)</option>
-        </select>
+        <div class="filterGroup">
+            <label for="filterEstado" class="filterLabel">Filtrar por Estado</label>
+            <select id="filterEstado" class="filterSelect">
+                <option value="">Filtrar por Estado</option>
+                <option value="SP">São Paulo (SP)</option>
+                <option value="RJ">Rio de Janeiro (RJ)</option>
+                <option value="MG">Minas Gerais (MG)</option>
+                <option value="DF">Distrito Federal (DF)</option>
+                <option value="BA">Bahia (BA)</option>
+                <option value="PR">Paraná (PR)</option>
+            </select>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
         
-        <label for="filterCidade">Cidade</label>
-        <select id="filterCidade" class="filterSelect" disabled>
-            <option value="">-- Selecionar Estado --</option>
-        </select>
+        <div class="filterGroup">
+            <label for="filterCidade" class="filterLabel">Filtrar por Cidade</label>
+            <select id="filterCidade" class="filterSelect" disabled>
+                <option value="">Filtrar por Cidade</option>
+            </select>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
     </div>
 
     <div class="cards">
