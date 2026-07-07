@@ -18,8 +18,6 @@
       </div>
       <nav class="dropdownMenu" id="dropdownMenu">
         <a href="index.html" class="dropdownItem">Home</a>
-        <a href="login.html" class="dropdownItem">Login</a>
-        <a href="cadastro.html" class="dropdownItem">Cadastro</a>
         <a href="../area-restrita/criar-anuncio.html" class="dropdownItem">Criar Anúncio</a>
         <a href="../area-restrita/meus-anuncios.html" class="dropdownItem">Listagem de Anúncios</a>
         <a href="../area-restrita/interesses.html" class="dropdownItem">Interesses Recebidos</a>
@@ -29,6 +27,11 @@
 
       <img src="../../assets/images/carLogo.png" alt="Logo" class="logoCar"/>
     </header>
+
+    <nav class="publicNavBar">
+        <a href="login.html" class="publicNavItem">Login</a>
+        <a href="cadastro.html" class="publicNavItem">Cadastro</a>
+    </nav>
 
     <main class="mainContent">
     <div id="filters">
@@ -58,25 +61,17 @@
             </select>
             <i class="bi bi-chevron-down"></i>
         </div>
-        
-        <div class="filterGroup">
-            <label for="filterEstado" class="filterLabel">Filtrar por Estado</label>
-            <select id="filterEstado" class="filterSelect">
-                <option value="">Filtrar por Estado</option>
-                <option value="SP">São Paulo (SP)</option>
-                <option value="RJ">Rio de Janeiro (RJ)</option>
-                <option value="MG">Minas Gerais (MG)</option>
-                <option value="DF">Distrito Federal (DF)</option>
-                <option value="BA">Bahia (BA)</option>
-                <option value="PR">Paraná (PR)</option>
-            </select>
-            <i class="bi bi-chevron-down"></i>
-        </div>
-        
+
         <div class="filterGroup">
             <label for="filterCidade" class="filterLabel">Filtrar por Cidade</label>
-            <select id="filterCidade" class="filterSelect" disabled>
+            <select id="filterCidade" class="filterSelect">
                 <option value="">Filtrar por Cidade</option>
+                <option value="São Paulo">São Paulo</option>
+                <option value="Rio de Janeiro">Rio de Janeiro</option>
+                <option value="Belo Horizonte">Belo Horizonte</option>
+                <option value="Brasília">Brasília</option>
+                <option value="Salvador">Salvador</option>
+                <option value="Curitiba">Curitiba</option>
             </select>
             <i class="bi bi-chevron-down"></i>
         </div>

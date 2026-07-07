@@ -1,5 +1,4 @@
-/* Reset global — garante que o header (e o layout em geral) renderize
-   igual nas páginas com Bootstrap (area-restrita) e sem Bootstrap (public) */
+ 
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -17,9 +16,7 @@ html, body {
     --background-white: #e0e1dd;
     --orange: #eb5e28;
 }
-
-/* Padrão global para todos os ícones Bootstrap Icons: 2rem de largura e altura */
-/* Layout de página sem depender do Bootstrap (usado nas páginas public) */
+ 
 .pageWrapper {
     display: flex;
     flex-direction: column;
@@ -35,6 +32,33 @@ html, body {
     text-align: center;
     padding: 1rem;
     margin-top: auto;
+}
+
+/* Navbar fixa das páginas públicas (Login / Cadastro) */
+.publicNavBar {
+    background-color: var(--orange);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.75rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.publicNavItem {
+    color: var(--text-color-white);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    transition: opacity 0.3s ease, text-decoration 0.3s ease;
+}
+
+.publicNavItem:hover {
+    opacity: 0.8;
+    text-decoration: underline;
 }
 
 .bi {
