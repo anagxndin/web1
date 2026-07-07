@@ -1,0 +1,131 @@
+
+.cadastroContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+    padding: 2rem;
+    background-color: var(--background-white);
+}
+
+.cadastroForm {
+    background-color: white;
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    padding: 3rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.cadastroForm h2 {
+    color: var(--black);
+    text-align: center;
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+}
+
+.cadastroSubtitle {
+    color: #666;
+    text-align: center;
+    margin: 0 0 2rem 0;
+    font-size: 0.95rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+    color: var(--black);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.formGroup label i {
+    color: var(--orange);
+}
+
+.formGroup input {
+    padding: 0.75rem;
+    border: 2px solid var(--black);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formGroup input:focus {
+    outline: none;
+    border-color: var(--orange);
+    box-shadow: 0 0 8px rgba(235, 94, 40, 0.3);
+}
+
+.formGroup input.error {
+    border-color: #dc3545;
+    background-color: #fff5f5;
+}
+
+.errorMessage {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.errorMessage.show {
+    display: block;
+}
+
+.btnCadastro {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
+}
+
+.btnCadastro:hover {
+    background-color: #d64620;
+    transform: translateY(-2px);
+}
+
+.btnCadastro:active {
+    transform: translateY(0);
+}
+
+.cadastroLink {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.cadastroLink a {
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.cadastroLink a:hover {
+    color: #d64620;
+    text-decoration: underline;
+}
+
+

@@ -1,0 +1,71 @@
+
+.card {
+    background-color: white;
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(235, 94, 40, 0.3);
+    border-color: var(--orange);
+}
+
+.cardImage {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.cardInfo {
+    padding: 1.5rem;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.cardMarcaModelo {
+    color: var(--black);
+    margin: 0;
+    font-size: 1.1rem;
+    flex: 1;
+}
+
+.cardAno {
+    background-color: var(--orange);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.cardCidade {
+    color: #666;
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cardValor {
+    color: var(--orange);
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 1rem 0 0 0;
+}
