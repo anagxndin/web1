@@ -4,41 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listagem de Interesses</title>
-    <link rel="stylesheet" href="../styles/estilos.css">
-    <script src="https://kit.fontawesome.com/aca5240e3d.js" crossorigin="anonymous"></script>
-    <script src="../scripts/scripts.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="../../styles/estilos.css">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <script src="../../scripts/scripts.js"></script>
 </head>
-<body>
+<body class="pageWrapper">
     <header class="mainHeader">
-      <button id="dropdownToggle"><i class="fa-solid fa-bars" id="menuIcon"></i></button>
+      <button id="dropdownToggle"><i class="bi bi-list" id="menuIcon"></i></button>
       <div id="logo">
         <h1><i>veloCity</i></h1>
       </div>
       <nav class="dropdownMenu" id="dropdownMenu">
-        <a href="index.html" class="dropdownItem">Home</a>
+       <a href="index.html" class="dropdownItem">Home</a>
         <a href="login.html" class="dropdownItem">Login</a>
         <a href="cadastro.html" class="dropdownItem">Cadastro</a>
-        <a href="criarAnuncio.html" class="dropdownItem">Criar Anúncio</a>
-        <a href="listagemAnuncios.html" class="dropdownItem">Listagem de Anúncios</a>
-        <a href="interesse.html" class="dropdownItem">Interesse em Veículo</a>
-        <a href="detalhesAnuncios.html" class="dropdownItem">Detalhes do Anúncio</a>
-        <a href="principalRestrita.html" class="dropdownItem">Principal Restrita</a>
+        <a href="../area-restrita/criar-anuncio.html" class="dropdownItem">Criar Anúncio</a>
+        <a href="../area-restrita/meus-anuncios.html" class="dropdownItem">Listagem de Anúncios</a>
+        <a href="../area-restrita/interesses.html" class="dropdownItem">Interesses Recebidos</a>
+        <a href="../area-restrita/detalhes.html" class="dropdownItem">Detalhes do Anúncio</a>
+        <a href="../area-restrita/principalRestrita.html" class="dropdownItem">Área Restrita</a>
       </nav>
+
+      <img src="../../assets/images/carLogo.png" alt="Logo" class="logoCar"/>
     </header>
 
-    <main>
+    <main class="mainContent">
         <div class="interesseContainer">
             <h2>Deixe sua Mensagem de Interesse</h2>
             
            
             <div class="veiculoInteresse">
-                <img src="../assets/images/corolla.jpg" alt="Toyota Corolla" class="veiculoImage">
+                <img src="../../assets/images/corolla.jpg" alt="Toyota Corolla" class="veiculoImage">
                 <div class="veiculoInfo">
                     <div class="veiculoHeader">
                         <h3 class="veiculoMarcaModelo">Toyota Corolla</h3>
                         <span class="veiculoAno">2020</span>
                     </div>
-                    <p class="veiculoCidade"><i class="fa-solid fa-map-pin"></i> São Paulo, SP</p>
+                    <p class="veiculoCidade"><i class="bi bi-geo-alt"></i> São Paulo, SP</p>
                     <p class="veiculoValor">R$ 85.000,00</p>
                     <p class="veiculoDescricao">Veículo em excelente estado, com 45.000 km rodados, único dono.</p>
                 </div>
@@ -65,5 +68,9 @@
             </form>
         </div>
     </main>
+
+    <footer class="bg-velocity-footer simpleFooter">
+        &copy; 2026 veloCity - Todos os direitos reservados.
+    </footer>
 </body>
 </html>

@@ -24,9 +24,7 @@ body {
 .bg-velocity-nav { background-color: var(--azul-marinho) !important; }
 .bg-velocity-footer { background-color: var(--marrom-escuro) !important; }
 
-/* Estilização do Nome veloCity */
-.logo-text { color: var(--creme); font-weight: bold; margin: 0; }
-.logo-accent { color: var(--laranja); }
+ 
 
 /* Destaques em textos e preços */
 .text-velocity-accent { color: var(--laranja) !important; font-weight: bold; }

@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="../styles/estilos.css">
-  <link rel="stylesheet" href="../styles/cadastro.css">
-    <script src="../scripts/scripts.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="../../styles/estilos.css">
+    <link rel="stylesheet" href="../../styles/cadastro.css">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <script src="../../scripts/scripts.js"></script>
 </head>
-<body>
+<body class="pageWrapper">
     <header class="mainHeader">
-      <button id="dropdownToggle"><i class="fa-solid fa-bars" id="menuIcon"></i></button>
+      <button id="dropdownToggle"><i class="bi bi-list" id="menuIcon"></i></button>
       <div id="logo">
         <h1><i>veloCity</i></h1>
       </div>
@@ -24,9 +26,11 @@
         <a href="../area-restrita/detalhes.html" class="dropdownItem">Detalhes do Anúncio</a>
         <a href="../area-restrita/principalRestrita.html" class="dropdownItem">Área Restrita</a>
       </nav>
+
+      <img src="../../assets/images/carLogo.png" alt="Logo" class="logoCar"/>
     </header>
 
-    <main>
+    <main class="mainContent">
     <div class="cadastroContainer">
         <div class="cadastroForm">
             <h2>Cadastro de Usuário</h2>
@@ -35,7 +39,7 @@
             <form id="formCadastro">
                 <div class="formGroup">
                     <label for="nome">
-                        <i class="fa-solid fa-user"></i> Nome Completo
+                        <i class="bi bi-person"></i> Nome Completo
                     </label>
                     <input 
                         type="text" 
@@ -47,7 +51,7 @@
 
                 <div class="formGroup">
                     <label for="cpf">
-                        <i class="fa-solid fa-id-card"></i> CPF
+                        <i class="bi bi-person-vcard"></i> CPF
                     </label>
                     <input 
                         type="text" 
@@ -59,7 +63,7 @@
 
                 <div class="formGroup">
                     <label for="email">
-                        <i class="fa-solid fa-envelope"></i> E-mail
+                        <i class="bi bi-envelope"></i> E-mail
                     </label>
                     <input 
                         type="email" 
@@ -71,7 +75,7 @@
 
                 <div class="formGroup">
                     <label for="telefone">
-                        <i class="fa-solid fa-phone"></i> Telefone
+                        <i class="bi bi-telephone"></i> Telefone
                     </label>
                     <input 
                         type="tel" 
@@ -83,7 +87,7 @@
 
                 <div class="formGroup">
                     <label for="senha">
-                        <i class="fa-solid fa-lock"></i> Senha
+                        <i class="bi bi-lock"></i> Senha
                     </label>
                     <input 
                         type="password" 
@@ -94,7 +98,7 @@
                 </div>
 
                 <button type="submit" class="btnCadastro">
-                    <i class="fa-solid fa-user-plus"></i> Cadastrar
+                    <i class="bi bi-person-plus"></i> Cadastrar
                 </button>
             </form>
 
@@ -105,25 +109,8 @@
     </div>
     </main>
 
-    <footer class="mainFooter">
-        <div class="footerContent">
-            <div class="footerSection">
-                <h3>veloCity</h3>
-                <p>Plataforma de compra e venda de veículos de forma segura e transparente.</p>
-            </div>
-            
-            <div class="footerSection">
-                <h4>Contato</h4>
-                <ul>
-                    <li>Email: contato@velocity.com</li>
-                    <li>Telefone: (11) 3000-0000</li>
-                    <li>Endereço: São Paulo, SP</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footerBottom">
-            <p>&copy; 2026 veloCity. Todos os direitos reservados.</p>
-        </div>
+    <footer class="bg-velocity-footer simpleFooter">
+        &copy; 2026 veloCity - Todos os direitos reservados.
     </footer>
 </body>
 </html>

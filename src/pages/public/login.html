@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../styles/estilos.css">
-    <link rel="stylesheet" href="../styles/login.css">
-    
-    <script src="../scripts/login.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="../../styles/estilos.css">
+    <link rel="stylesheet" href="../../styles/login.css">
+    <link rel="stylesheet" href="../../styles/style.css">
+
+    <script src="../../scripts/scripts.js"></script>
 </head>
-<body>
+<body class="pageWrapper">
     <header class="mainHeader">
-      <button id="dropdownToggle"><i class="fa-solid fa-bars" id="menuIcon"></i></button>
+      <button id="dropdownToggle"><i class="bi bi-list" id="menuIcon"></i></button>
       <div id="logo">
         <h1><i>veloCity</i></h1>
       </div>
@@ -24,15 +26,16 @@
         <a href="../area-restrita/interesses.html" class="dropdownItem">Interesses Recebidos</a>
         <a href="../area-restrita/detalhes.html" class="dropdownItem">Detalhes do Anúncio</a>
         <a href="../area-restrita/principalRestrita.html" class="dropdownItem">Área Restrita</a>
-      
       </nav>
+
+      <img src="../../assets/images/carLogo.png" alt="Logo" class="logoCar"/>
     </header>
 
-    <main>
+    <main class="mainContent">
     <div class="loginContainer">
         <div class="loginForm">
             <div class="loginHeader">
-                <i class="fa-solid fa-lock-open loginIcon"></i>
+                <i class="bi bi-unlock loginIcon"></i>
                 <h2>Login</h2>
             </div>
             <p class="loginSubtitle">Acesse sua conta para gerenciar seus anúncios</p>
@@ -40,7 +43,7 @@
             <form id="formLogin">
                 <div class="formGroup">
                     <label for="loginEmail">
-                        <i class="fa-solid fa-envelope"></i> E-mail
+                        <i class="bi bi-envelope"></i> E-mail
                     </label>
                     <input 
                         type="email" 
@@ -52,7 +55,7 @@
 
                 <div class="formGroup">
                     <label for="loginSenha">
-                        <i class="fa-solid fa-lock"></i> Senha
+                        <i class="bi bi-lock"></i> Senha
                     </label>
                     <input 
                         type="password" 
@@ -63,7 +66,7 @@
                 </div>
 
                 <button type="submit" class="btnLogin">
-                    <i class="fa-solid fa-sign-in-alt"></i> Entrar
+                    <i class="bi bi-box-arrow-in-right"></i> Entrar
                 </button>
             </form>
 
@@ -78,5 +81,10 @@
             </p>
         </div>
     </div>
+    </main>
+
+    <footer class="bg-velocity-footer simpleFooter">
+        &copy; 2026 veloCity - Todos os direitos reservados.
+    </footer>
 </body>
 </html>

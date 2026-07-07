@@ -4,14 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <link rel="stylesheet" href="../../styles/estilos.css" />  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="../../styles/estilos.css" />
     <link rel="stylesheet" href="../../styles/cards.css" />
-     <script src="https://kit.fontawesome.com/aca5240e3d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../styles/style.css" />
     <script src="../../scripts/scripts.js"></script>
   </head>
-  <body id="homeBody">
+  <body id="homeBody" class="pageWrapper">
     <header class="mainHeader">
-      <button id="dropdownToggle"><i class="fa-solid fa-bars" id="menuIcon"></i></button>
+      <button id="dropdownToggle"><i class="bi bi-list" id="menuIcon"></i></button>
       <div id="logo">
         <h1><i>veloCity</i></h1>
       </div>
@@ -24,13 +25,12 @@
         <a href="../area-restrita/interesses.html" class="dropdownItem">Interesses Recebidos</a>
         <a href="../area-restrita/detalhes.html" class="dropdownItem">Detalhes do Anúncio</a>
         <a href="../area-restrita/principalRestrita.html" class="dropdownItem">Área Restrita</a>
-      
       </nav>
 
       <img src="../../assets/images/carLogo.png" alt="Logo" class="logoCar"/>
     </header>
 
-    <main>
+    <main class="mainContent">
     <div id="filters">
         <div class="filterGroup">
             <label for="filterMarca" class="filterLabel">Filtrar por Marca</label>
@@ -42,7 +42,7 @@
                 <option value="BYD">BYD</option>
                 <option value="Fiat">Fiat</option>
             </select>
-            <i class="fa-solid fa-chevron-down"></i>
+            <i class="bi bi-chevron-down"></i>
         </div>
         
         <div class="filterGroup">
@@ -56,7 +56,7 @@
                 <option value="Dolphin">Dolphin</option>
                 <option value="Uno">Uno</option>
             </select>
-            <i class="fa-solid fa-chevron-down"></i>
+            <i class="bi bi-chevron-down"></i>
         </div>
         
         <div class="filterGroup">
@@ -70,7 +70,7 @@
                 <option value="BA">Bahia (BA)</option>
                 <option value="PR">Paraná (PR)</option>
             </select>
-            <i class="fa-solid fa-chevron-down"></i>
+            <i class="bi bi-chevron-down"></i>
         </div>
         
         <div class="filterGroup">
@@ -78,7 +78,7 @@
             <select id="filterCidade" class="filterSelect" disabled>
                 <option value="">Filtrar por Cidade</option>
             </select>
-            <i class="fa-solid fa-chevron-down"></i>
+            <i class="bi bi-chevron-down"></i>
         </div>
     </div>
 
@@ -90,7 +90,7 @@
                     <h3 class="cardMarcaModelo">Toyota Corolla</h3>
                     <span class="cardAno">2020</span>
                 </div>
-                <p class="cardCidade"><i class="fa-solid fa-map-pin"></i> São Paulo, SP</p>
+                <p class="cardCidade"><i class="bi bi-geo-alt"></i> São Paulo, SP</p>
                 <p class="cardValor">R$ 85.000,00</p>
             </div>
         </div>
@@ -101,7 +101,7 @@
                     <h3 class="cardMarcaModelo">Chevrolet Onix</h3>
                     <span class="cardAno">2021</span>
                 </div>
-                <p class="cardCidade"><i class="fa-solid fa-map-pin"></i> Rio de Janeiro, RJ</p>
+                <p class="cardCidade"><i class="bi bi-geo-alt"></i> Rio de Janeiro, RJ</p>
                 <p class="cardValor">R$ 75.000,00</p>
             </div>
         </div>
@@ -112,7 +112,7 @@
                     <h3 class="cardMarcaModelo">Hyundai HB20</h3>
                     <span class="cardAno">2019</span>
                 </div>
-                <p class="cardCidade"><i class="fa-solid fa-map-pin"></i> Belo Horizonte, MG</p>
+                <p class="cardCidade"><i class="bi bi-geo-alt"></i> Belo Horizonte, MG</p>
                 <p class="cardValor">R$ 65.000,00</p>
             </div>
         </div>
@@ -123,7 +123,7 @@
                     <h3 class="cardMarcaModelo">Chevrolet Celta</h3>
                     <span class="cardAno">2018</span>
                 </div>
-                <p class="cardCidade"><i class="fa-solid fa-map-pin"></i> Brasília, DF</p>
+                <p class="cardCidade"><i class="bi bi-geo-alt"></i> Brasília, DF</p>
                 <p class="cardValor">R$ 38.000,00</p>
             </div>
         </div>
@@ -134,7 +134,7 @@
                     <h3 class="cardMarcaModelo">BYD Dolphin</h3>
                     <span class="cardAno">2022</span>
                 </div>
-                <p class="cardCidade"><i class="fa-solid fa-map-pin"></i> Salvador, BA</p>
+                <p class="cardCidade"><i class="bi bi-geo-alt"></i> Salvador, BA</p>
                 <p class="cardValor">R$ 95.000,00</p>
             </div>
         </div>
@@ -145,32 +145,15 @@
                     <h3 class="cardMarcaModelo">Fiat Uno</h3>
                     <span class="cardAno">2017</span>
                 </div>
-                <p class="cardCidade"><i class="fa-solid fa-map-pin"></i> Curitiba, PR</p>
+                <p class="cardCidade"><i class="bi bi-geo-alt"></i> Curitiba, PR</p>
                 <p class="cardValor">R$ 42.000,00</p>
             </div>
         </div>
     </div>
     </main>
 
-    <footer class="mainFooter">
-        <div class="footerContent">
-            <div class="footerSection">
-                <h3>veloCity</h3>
-                <p>Plataforma de compra e venda de veículos de forma segura e transparente.</p>
-            </div>
-           
-            <div class="footerSection">
-                <h4>Contato</h4>
-                <ul>
-                    <li>Email: contato@velocity.com</li>
-                    <li>Telefone: (11) 3000-0000</li>
-                    <li>Endereço: São Paulo, SP</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footerBottom">
-            <p>&copy; 2026 veloCity. Todos os direitos reservados.</p>
-        </div>
+    <footer class="bg-velocity-footer simpleFooter">
+        &copy; 2026 veloCity - Todos os direitos reservados.
     </footer>
   </body>
 </html>
