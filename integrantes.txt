@@ -1,6 +1,6 @@
 Nome do Portal: veloCity
 Integrantes:
-1. Ana Paula Gondin - 12321BSI
+1. Ana Paula Gondin - 12321BSI296
 2. Felipe Moneda Gilioli - 12321BSI256
 3. Isabelle Alves Florêncio - 12321BSI291
 4. Murilo de Melo Barbosa Santos - 12321BSI245
