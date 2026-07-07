@@ -20,10 +20,85 @@
         <a href="cadastro.html" class="dropdownItem">Cadastro</a>
         <a href="criarAnuncio.html" class="dropdownItem">Criar Anúncio</a>
         <a href="listagemAnuncios.html" class="dropdownItem">Listagem de Anúncios</a>
-        <a href="interesse.html" class="dropdownItem">Listagem de Interesses</a>
+        <a href="interesse.html" class="dropdownItem">Interesse em Veículo</a>
         <a href="detalhesAnuncios.html" class="dropdownItem">Detalhes do Anúncio</a>
         <a href="principalRestrita.html" class="dropdownItem">Principal Restrita</a>
       </nav>
     </header>
+
+    <main>
+        <div class="anuncioContainer">
+            <h2>Criar Novo Anúncio</h2>
+
+            <form class="anuncioForm" id="formAnuncio">
+                <div class="formSection">
+                    <h3>Informações do Veículo</h3>
+                    
+                    <div class="formGroup">
+                        <label for="marcaAnuncio">Marca</label>
+                        <input type="text" id="marcaAnuncio" name="marcaAnuncio" placeholder="Ex: Toyota">
+                    </div>
+
+                    <div class="formGroup">
+                        <label for="modeloAnuncio">Modelo</label>
+                        <input type="text" id="modeloAnuncio" name="modeloAnuncio" placeholder="Ex: Corolla">
+                    </div>
+
+                    <div class="formGroup">
+                        <label for="anoAnuncio">Ano</label>
+                        <input type="number" id="anoAnuncio" name="anoAnuncio" placeholder="2020">
+                    </div>
+
+                    <div class="formGroup">
+                        <label for="kmAnuncio">Quilometragem</label>
+                        <input type="number" id="kmAnuncio" name="kmAnuncio" placeholder="45000">
+                    </div>
+
+                    <div class="formGroup">
+                        <label for="precoAnuncio">Preço (R$)</label>
+                        <input type="number" id="precoAnuncio" name="precoAnuncio" placeholder="85000">
+                    </div>
+                </div>
+
+                <div class="formSection">
+                    <h3>Localização</h3>
+                    
+                    <div class="formGroup">
+                        <label for="estadoAnuncio">Estado</label>
+                        <select id="estadoAnuncio" name="estadoAnuncio">
+                            <option value="">Selecione o Estado</option>
+                            <option value="SP">São Paulo (SP)</option>
+                            <option value="RJ">Rio de Janeiro (RJ)</option>
+                            <option value="MG">Minas Gerais (MG)</option>
+                            <option value="DF">Distrito Federal (DF)</option>
+                            <option value="BA">Bahia (BA)</option>
+                            <option value="PR">Paraná (PR)</option>
+                        </select>
+                    </div>
+
+                    <div class="formGroup">
+                        <label for="cidadeAnuncio">Cidade</label>
+                        <input type="text" id="cidadeAnuncio" name="cidadeAnuncio" placeholder="Ex: São Paulo">
+                    </div>
+                </div>
+
+                <div class="formSection">
+                    <h3>Descrição</h3>
+                    
+                    <div class="formGroup">
+                        <label for="descricaoAnuncio">Descrição do Veículo</label>
+                        <textarea id="descricaoAnuncio" name="descricaoAnuncio" placeholder="Descreva o estado e características do veículo..." rows="6"></textarea>
+                    </div>
+
+                    <div class="formGroup">
+                        <label for="imagemAnuncio">Imagem do Veículo</label>
+                        <input type="file" id="imagemAnuncio" name="imagemAnuncio" accept="image/*">
+                    </div>
+                </div>
+
+                <button type="submit" class="submitBtn">Publicar Anúncio</button>
+            </form>
+        </div>
+    </main>
 </body>
 </html>

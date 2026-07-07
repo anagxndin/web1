@@ -20,10 +20,50 @@
         <a href="cadastro.html" class="dropdownItem">Cadastro</a>
         <a href="criarAnuncio.html" class="dropdownItem">Criar Anúncio</a>
         <a href="listagemAnuncios.html" class="dropdownItem">Listagem de Anúncios</a>
-        <a href="interesse.html" class="dropdownItem">Listagem de Interesses</a>
+        <a href="interesse.html" class="dropdownItem">Interesse em Veículo</a>
         <a href="detalhesAnuncios.html" class="dropdownItem">Detalhes do Anúncio</a>
         <a href="principalRestrita.html" class="dropdownItem">Principal Restrita</a>
       </nav>
     </header>
+
+    <main>
+        <div class="interesseContainer">
+            <h2>Deixe sua Mensagem de Interesse</h2>
+            
+           
+            <div class="veiculoInteresse">
+                <img src="../assets/images/corolla.jpg" alt="Toyota Corolla" class="veiculoImage">
+                <div class="veiculoInfo">
+                    <div class="veiculoHeader">
+                        <h3 class="veiculoMarcaModelo">Toyota Corolla</h3>
+                        <span class="veiculoAno">2020</span>
+                    </div>
+                    <p class="veiculoCidade"><i class="fa-solid fa-map-pin"></i> São Paulo, SP</p>
+                    <p class="veiculoValor">R$ 85.000,00</p>
+                    <p class="veiculoDescricao">Veículo em excelente estado, com 45.000 km rodados, único dono.</p>
+                </div>
+            </div>
+
+           
+            <form class="interesseForm" id="formInteresse">
+                <div class="formGroup">
+                    <label for="interesseNome">Nome Completo</label>
+                    <input type="text" id="interesseNome" name="interesseNome" placeholder="Digite seu nome completo">
+                </div>
+
+                <div class="formGroup">
+                    <label for="interesseTelefone">Telefone</label>
+                    <input type="tel" id="interesseTelefone" name="interesseTelefone" placeholder="(XX) XXXXX-XXXX">
+                </div>
+
+                <div class="formGroup">
+                    <label for="interesseMensagem">Mensagem de Interesse</label>
+                    <textarea id="interesseMensagem" name="interesseMensagem" placeholder="Deixe sua mensagem aqui..." rows="6"></textarea>
+                </div>
+
+                <button type="submit" class="submitBtn">Enviar Interesse</button>
+            </form>
+        </div>
+    </main>
 </body>
 </html>

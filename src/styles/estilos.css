@@ -514,3 +514,770 @@ button {
     color: #d64620;
     text-decoration: underline;
 }
+
+/* Interesse Page Styles */
+.interesseContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: var(--background-white);
+    min-height: calc(100vh - 200px);
+}
+
+.interesseContainer > h2 {
+    color: var(--black);
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+    margin-top: 1rem;
+}
+
+/* Veículo Card (Interesse Page) */
+.veiculoInteresse {
+    background-color: white;
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.veiculoInteresse:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(235, 94, 40, 0.3);
+    border-color: var(--orange);
+}
+
+.veiculoImage {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.veiculoInfo {
+    padding: 1.5rem;
+}
+
+.veiculoHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.veiculoMarcaModelo {
+    color: var(--black);
+    margin: 0;
+    font-size: 1.3rem;
+    flex: 1;
+    font-weight: bold;
+}
+
+.veiculoAno {
+    background-color: var(--orange);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.veiculoCidade {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.veiculoCidade i {
+    color: var(--orange);
+}
+
+.veiculoValor {
+    color: var(--orange);
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.veiculoDescricao {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 1rem 0 0 0;
+}
+
+/* Interesse Form */
+.interesseForm {
+    background-color: white;
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.interesseForm .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.interesseForm label {
+    color: var(--black);
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.interesseForm input[type="text"],
+.interesseForm input[type="tel"],
+.interesseForm textarea {
+    padding: 0.75rem;
+    border: 2px solid var(--black);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: Roboto, sans-serif;
+    background-color: white;
+    color: var(--black);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interesseForm input[type="text"]:focus,
+.interesseForm input[type="tel"]:focus,
+.interesseForm textarea:focus {
+    outline: none;
+    border-color: var(--orange);
+    box-shadow: 0 0 10px rgba(235, 94, 40, 0.3);
+}
+
+.interesseForm textarea {
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.submitBtn {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submitBtn:hover {
+    background-color: #d64620;
+    transform: translateY(-2px);
+}
+
+.submitBtn:active {
+    transform: translateY(0);
+}
+
+/* Criar Anúncio Page Styles */
+.anuncioContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: var(--background-white);
+    min-height: calc(100vh - 200px);
+}
+
+.anuncioContainer > h2 {
+    color: var(--black);
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+    margin-top: 1rem;
+}
+
+.anuncioForm {
+    background-color: white;
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+.formSection {
+    margin-bottom: 2rem;
+}
+
+.formSection h3 {
+    color: var(--black);
+    font-size: 1.2rem;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--orange);
+}
+
+.anuncioForm .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.anuncioForm label {
+    color: var(--black);
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.anuncioForm input[type="text"],
+.anuncioForm input[type="number"],
+.anuncioForm input[type="file"],
+.anuncioForm select,
+.anuncioForm textarea {
+    padding: 0.75rem;
+    border: 2px solid var(--black);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: Roboto, sans-serif;
+    background-color: white;
+    color: var(--black);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.anuncioForm input[type="text"]:focus,
+.anuncioForm input[type="number"]:focus,
+.anuncioForm input[type="file"]:focus,
+.anuncioForm select:focus,
+.anuncioForm textarea:focus {
+    outline: none;
+    border-color: var(--orange);
+    box-shadow: 0 0 10px rgba(235, 94, 40, 0.3);
+}
+
+.anuncioForm select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23252422%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3e%3cpolyline points=%226 9 12 15 18 9%22%3e%3c/polyline%3e%3c/svg%3e');
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+.anuncioForm textarea {
+    resize: vertical;
+    line-height: 1.5;
+}
+
+/* Listagem de Anúncios */
+.listagemContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: var(--background-white);
+    min-height: calc(100vh - 200px);
+}
+
+.listagemContainer > h2 {
+    color: var(--black);
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+    margin-top: 1rem;
+}
+
+.anunciosListagem {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.anuncioItem {
+    background-color: white;
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.anuncioItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(235, 94, 40, 0.3);
+}
+
+.anuncioImage {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.anuncioItemInfo {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.anuncioItemHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.anuncioItemHeader h3 {
+    color: var(--black);
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.anuncioStatus {
+    background-color: #4caf50;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.anuncioStatus.anuncioStatusInativo {
+    background-color: #f44336;
+}
+
+.anuncioItemLocalizacao {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.anuncioItemPreco {
+    color: var(--orange);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 0 1rem 0;
+}
+
+.anuncioItemAcoes {
+    display: flex;
+    gap: 1rem;
+}
+
+.btnDetalhes,
+.btnEditar,
+.btnRemover,
+.btnResponder,
+.btnRemoverInteresse,
+.btnContatarAnunciante {
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btnDetalhes {
+    background-color: var(--orange);
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btnDetalhes:hover {
+    background-color: #d64620;
+    transform: translateY(-2px);
+}
+
+.btnEditar {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btnEditar:hover {
+    background-color: #1976D2;
+    transform: translateY(-2px);
+}
+
+.btnRemover,
+.btnRemoverInteresse {
+    background-color: #f44336;
+    color: white;
+}
+
+.btnRemover:hover,
+.btnRemoverInteresse:hover {
+    background-color: #d32f2f;
+    transform: translateY(-2px);
+}
+
+/* Listagem de Interesses */
+.interessesListagem {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.interesseItem {
+    background-color: white;
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interesseItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(235, 94, 40, 0.3);
+}
+
+.interesseVeiculo {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.interesseImagemVeiculo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.interesseVeiculoInfo h3 {
+    color: var(--black);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.interesseVeiculoInfo p {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.interesseDetalhes h4 {
+    color: var(--black);
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.interesseDetalhes p {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 0.3rem 0;
+}
+
+.interesseMensagemPreview {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    color: #555;
+    font-style: italic;
+}
+
+.interesseAcoes {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btnResponder {
+    background-color: var(--orange);
+    color: white;
+}
+
+.btnResponder:hover {
+    background-color: #d64620;
+    transform: translateY(-2px);
+}
+
+/* Detalhes do Anúncio */
+.detalhesContainer {
+    padding: 2rem;
+    background-color: var(--background-white);
+    min-height: calc(100vh - 200px);
+}
+
+.detalhesVeiculo {
+    background-color: white;
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.imagemPrincipal {
+    flex-shrink: 0;
+}
+
+.detalhesImage {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.infoVeiculo {
+    flex: 1;
+}
+
+.headerVeiculo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.headerVeiculo h2 {
+    color: var(--black);
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.precoDestaque {
+    background-color: var(--orange);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.especificacoes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.especificacao h4 {
+    color: var(--black);
+    margin: 0 0 0.5rem 0;
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+.especificacao p {
+    color: #666;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.descricaoVeiculo {
+    margin-bottom: 2rem;
+}
+
+.descricaoVeiculo h3 {
+    color: var(--black);
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+}
+
+.descricaoVeiculo p {
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.infoAnunciante h3 {
+    color: var(--black);
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+}
+
+.anuncianteCard {
+    background-color: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 5px;
+    border-left: 4px solid var(--orange);
+}
+
+.anuncianteCard h4 {
+    color: var(--black);
+    margin: 0 0 0.8rem 0;
+    font-size: 1.1rem;
+}
+
+.anuncianteCard p {
+    color: #666;
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+.btnContatarAnunciante {
+    background-color: var(--orange);
+    color: white;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.btnContatarAnunciante:hover {
+    background-color: #d64620;
+    transform: translateY(-2px);
+}
+
+/* Principal Restrita */
+.principalRestritaContainer {
+    padding: 2rem;
+    background-color: var(--background-white);
+    min-height: calc(100vh - 200px);
+}
+
+.userWelcome {
+    background: linear-gradient(135deg, var(--orange) 0%, #d64620 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.userWelcome h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+}
+
+.userEmail {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.dashboardGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.dashboardCard {
+    background-color: white;
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboardCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(235, 94, 40, 0.3);
+}
+
+.cardIcon {
+    font-size: 3rem;
+    color: var(--orange);
+    margin-bottom: 1rem;
+}
+
+.dashboardCard h3 {
+    color: var(--black);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.cardStats {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 0.5rem 0 1.5rem 0;
+}
+
+.cardLink {
+    display: inline-block;
+    background-color: var(--orange);
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cardLink:hover {
+    background-color: #d64620;
+    transform: translateY(-2px);
+}
+
+.recentActivity {
+    background-color: white;
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recentActivity h3 {
+    color: var(--black);
+    margin: 0 0 1.5rem 0;
+    font-size: 1.2rem;
+}
+
+.activityList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.activityList li {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.activityList li:last-child {
+    border-bottom: none;
+}
+
+.activityDate {
+    background-color: var(--orange);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.activityText {
+    color: #555;
+    font-size: 0.95rem;
+}

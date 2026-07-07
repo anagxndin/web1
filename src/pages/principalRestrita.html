@@ -20,10 +20,75 @@
         <a href="cadastro.html" class="dropdownItem">Cadastro</a>
         <a href="criarAnuncio.html" class="dropdownItem">Criar Anúncio</a>
         <a href="listagemAnuncios.html" class="dropdownItem">Listagem de Anúncios</a>
-        <a href="interesse.html" class="dropdownItem">Listagem de Interesses</a>
+        <a href="interesse.html" class="dropdownItem">Interesse em Veículo</a>
         <a href="detalhesAnuncios.html" class="dropdownItem">Detalhes do Anúncio</a>
         <a href="principalRestrita.html" class="dropdownItem">Principal Restrita</a>
       </nav>
     </header>
+
+    <main>
+        <div class="principalRestritaContainer">
+            <div class="userWelcome">
+                <h2>Bem-vindo, João Silva!</h2>
+                <p class="userEmail">joao.silva@email.com</p>
+            </div>
+
+            <div class="dashboardGrid">
+                <div class="dashboardCard">
+                    <div class="cardIcon">
+                        <i class="fa-solid fa-car"></i>
+                    </div>
+                    <h3>Meus Anúncios</h3>
+                    <p class="cardStats">3 anúncios ativos</p>
+                    <a href="listagemAnuncios.html" class="cardLink">Gerenciar Anúncios</a>
+                </div>
+
+                <div class="dashboardCard">
+                    <div class="cardIcon">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+                    <h3>Interesses Recebidos</h3>
+                    <p class="cardStats">2 novos interesses</p>
+                    <a href="listagemInteresses.html" class="cardLink">Ver Interesses</a>
+                </div>
+
+                <div class="dashboardCard">
+                    <div class="cardIcon">
+                        <i class="fa-solid fa-plus-circle"></i>
+                    </div>
+                    <h3>Criar Novo Anúncio</h3>
+                    <p class="cardStats">Anuncie seu veículo</p>
+                    <a href="criarAnuncio.html" class="cardLink">Novo Anúncio</a>
+                </div>
+
+                <div class="dashboardCard">
+                    <div class="cardIcon">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <h3>Perfil</h3>
+                    <p class="cardStats">Editar informações</p>
+                    <a href="#" class="cardLink">Acessar Perfil</a>
+                </div>
+            </div>
+
+            <div class="recentActivity">
+                <h3>Atividade Recente</h3>
+                <ul class="activityList">
+                    <li>
+                        <span class="activityDate">Hoje</span>
+                        <span class="activityText">João Silva manifestou interesse em Toyota Corolla 2020</span>
+                    </li>
+                    <li>
+                        <span class="activityDate">Ontem</span>
+                        <span class="activityText">Seu anúncio "Chevrolet Onix 2021" recebeu 5 visualizações</span>
+                    </li>
+                    <li>
+                        <span class="activityDate">2 dias atrás</span>
+                        <span class="activityText">Você publicou um novo anúncio "Hyundai HB20 2019"</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
 </body>
 </html>

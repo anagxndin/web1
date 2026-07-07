@@ -31,7 +31,7 @@
             <h2>Cadastro de Usuário</h2>
             <p class="cadastroSubtitle">Crie sua conta para anunciar seus veículos</p>
             
-            <form id="formCadastro" novalidate>
+            <form id="formCadastro">
                 <div class="formGroup">
                     <label for="nome">
                         <i class="fa-solid fa-user"></i> Nome Completo
@@ -40,10 +40,8 @@
                         type="text" 
                         id="nome" 
                         name="nome" 
-                        placeholder="Digite seu nome completo" 
-                        required
+                        placeholder="Digite seu nome completo"
                     >
-                    <span class="errorMessage" id="erroNome"></span>
                 </div>
 
                 <div class="formGroup">
@@ -54,10 +52,8 @@
                         type="text" 
                         id="cpf" 
                         name="cpf" 
-                        placeholder="000.000.000-00" 
-                        required
+                        placeholder="000.000.000-00"
                     >
-                    <span class="errorMessage" id="erroCpf"></span>
                 </div>
 
                 <div class="formGroup">
@@ -68,10 +64,8 @@
                         type="email" 
                         id="email" 
                         name="email" 
-                        placeholder="seu.email@exemplo.com" 
-                        required
+                        placeholder="seu.email@exemplo.com"
                     >
-                    <span class="errorMessage" id="erroEmail"></span>
                 </div>
 
                 <div class="formGroup">
@@ -82,10 +76,8 @@
                         type="tel" 
                         id="telefone" 
                         name="telefone" 
-                        placeholder="(11) 99999-9999" 
-                        required
+                        placeholder="(11) 99999-9999"
                     >
-                    <span class="errorMessage" id="erroTelefone"></span>
                 </div>
 
                 <div class="formGroup">
@@ -96,10 +88,8 @@
                         type="password" 
                         id="senha" 
                         name="senha" 
-                        placeholder="Digite uma senha forte" 
-                        required
+                        placeholder="Digite uma senha forte"
                     >
-                    <span class="errorMessage" id="erroSenha"></span>
                 </div>
 
                 <div class="formGroup">
@@ -110,10 +100,8 @@
                         type="password" 
                         id="confirmarSenha" 
                         name="confirmarSenha" 
-                        placeholder="Confirme sua senha" 
-                        required
+                        placeholder="Confirme sua senha"
                     >
-                    <span class="errorMessage" id="erroConfirmarSenha"></span>
                 </div>
 
                 <button type="submit" class="btnCadastro">
