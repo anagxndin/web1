@@ -1,0 +1,55 @@
+:root {
+    /* Paleta 1 */
+    --azul-escuro: #0d1b2a;
+    --azul-marinho: #1b263b;
+    --azul-medio: #415a77;
+    --azul-claro: #778da9;
+    --gelo: #e0e1dd;
+
+    /* Paleta 2 */
+    --creme: #fffcf2;
+    --bege: #ccc5b9;
+    --marrom-claro: #403d39;
+    --marrom-escuro: #252422;
+    --laranja: #eb5e28;
+}
+
+/* Fundo geral da página */
+body {
+    background-color: var(--gelo) !important;
+}
+
+/* Cores Estruturais */
+.bg-velocity-header { background-color: var(--azul-escuro) !important; }
+.bg-velocity-nav { background-color: var(--azul-marinho) !important; }
+.bg-velocity-footer { background-color: var(--marrom-escuro) !important; }
+
+/* Estilização do Nome veloCity */
+.logo-text { color: var(--creme); font-weight: bold; margin: 0; }
+.logo-accent { color: var(--laranja); }
+
+/* Destaques em textos e preços */
+.text-velocity-accent { color: var(--laranja) !important; font-weight: bold; }
+
+/* Botão Principal */
+.btn-velocity-primary {
+    background-color: var(--laranja);
+    border-color: var(--laranja);
+    color: var(--creme);
+}
+.btn-velocity-primary:hover {
+    background-color: #d1501e;
+    border-color: #d1501e;
+    color: #fff;
+}
+
+/* Botão Secundário */
+.btn-velocity-secondary {
+    background-color: var(--azul-medio);
+    border-color: var(--azul-medio);
+    color: var(--gelo);
+}
+.btn-velocity-secondary:hover {
+    background-color: var(--azul-marinho);
+    color: white;
+}
