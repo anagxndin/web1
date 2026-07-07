@@ -1,0 +1,755 @@
+ 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+* {font-family: Roboto, sans-serif;}
+
+:root {
+    --black: #252422;
+    --text-color-white: #fffcf2;
+    --background-white: #e0e1dd;
+    --orange: #eb5e28;
+}
+ 
+.pageWrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.mainContent {
+    flex: 1 0 auto;
+}
+
+.simpleFooter {
+    color: var(--creme, #fffcf2);
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
+
+/* Navbar fixa das páginas públicas (Login / Cadastro) */
+.publicNavBar {
+    background-color: var(--orange);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.75rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.publicNavItem {
+    color: var(--text-color-white);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    transition: opacity 0.3s ease, text-decoration 0.3s ease;
+}
+
+.publicNavItem:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+.bi {
+    font-size: 2rem;
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.mainHeader h1 {
+    font-weight: 700;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.mainHeader {
+    background-color: var(--black);
+    color: var(--text-color-white);
+    width: 100%;
+    height: 3rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;  
+    padding-left: 2rem;
+    position: relative;
+}
+
+#logo {
+    padding: 0.5rem;
+    font-weight: bold;
+    color: var(--text-color-white);
+    background-color: var(--orange);
+    text-align: center;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0; /* remove o margin: 0 auto que não faz nada com position:absolute */
+}
+
+.logoCar {
+    width: 16rem;
+    height: 12rem;
+    display: flex;
+  
+}
+
+#menuIcon {
+    color: var(--text-color-white);
+    background-color: var(--black);
+    padding: 0;
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+    background: none;
+    box-shadow: none;
+}
+
+#homeBody {
+    background-color: var(--background-white);
+}
+ 
+
+.dropdownMenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--black);
+    width: 100%;
+    flex-direction: column;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.dropdownMenu.active {
+    display: flex;
+}
+
+.dropdownItem {
+    padding: 1rem 2rem;
+    color: var(--text-color-white);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(235, 94, 40, 0.2);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdownItem:hover {
+    background-color: var(--orange);
+    color: var(--black);
+}
+
+.dropdownItem:last-child {
+    border-bottom: none;
+}
+
+#dropdownToggle {
+    z-index: 1001;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.cards image {
+    width: 5rem;
+    height: auto;
+    border-radius: 10px;
+}
+
+#filters {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    padding: 2rem;
+    background-color: var(--background-white);
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.filterGroup {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.filterLabel {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.filterGroup i {
+    position: absolute;
+    right: 0;
+    color: var(--orange);
+    pointer-events: none;
+}
+
+.filterSelect {
+    padding: 0.75rem 1.5rem 0.75rem 0;
+    border: none;
+    border-radius: 0;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--black);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: none;
+    min-width: auto;
+    transition: color 0.3s ease;
+}
+
+.filterSelect:hover {
+    color: var(--orange);
+}
+
+.filterSelect:focus {
+    outline: none;
+    color: var(--orange);
+}
+
+.filterSelect:disabled {
+    background-color: transparent;
+    color: #999;
+    cursor: not-allowed;
+}
+
+#filters label {
+    font-weight: bold;
+    color: var(--black);
+}
+
+/* Interesse Page Styles */
+.interesseContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: var(--background-white);
+    min-height: calc(100vh - 200px);
+}
+
+.interesseContainer > h2 {
+    color: var(--black);
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+    margin-top: 1rem;
+}
+
+/* Veículo Card (Interesse Page) */
+.veiculoInteresse {
+    background-color: white;
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.veiculoInteresse:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(235, 94, 40, 0.3);
+    border-color: var(--orange);
+}
+
+.veiculoImage {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.veiculoInfo {
+    padding: 1.5rem;
+}
+
+.veiculoHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.veiculoMarcaModelo {
+    color: var(--black);
+    margin: 0;
+    font-size: 1.3rem;
+    flex: 1;
+    font-weight: bold;
+}
+
+.veiculoAno {
+    background-color: var(--orange);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.veiculoCidade {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.veiculoCidade i {
+    color: var(--orange);
+}
+
+.veiculoValor {
+    color: var(--orange);
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.veiculoDescricao {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 1rem 0 0 0;
+}
+
+/* Interesse Form */
+.interesseForm {
+    background-color: white;
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.interesseForm .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.interesseForm label {
+    color: var(--black);
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.interesseForm input[type="text"],
+.interesseForm input[type="tel"],
+.interesseForm textarea {
+    padding: 0.75rem;
+    border: 2px solid var(--black);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: Roboto, sans-serif;
+    background-color: white;
+    color: var(--black);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interesseForm input[type="text"]:focus,
+.interesseForm input[type="tel"]:focus,
+.interesseForm textarea:focus {
+    outline: none;
+    border-color: var(--orange);
+    box-shadow: 0 0 10px rgba(235, 94, 40, 0.3);
+}
+
+.interesseForm textarea {
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.submitBtn {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submitBtn:hover {
+    background-color: #d64620;
+    transform: translateY(-2px);
+}
+
+.submitBtn:active {
+    transform: translateY(0);
+}
+
+/* Criar Anúncio Page Styles */
+.anuncioContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: var(--background-white);
+    min-height: calc(100vh - 200px);
+}
+
+.anuncioContainer > h2 {
+    color: var(--black);
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+    margin-top: 1rem;
+}
+
+.anuncioForm {
+    background-color: white;
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+.formSection {
+    margin-bottom: 2rem;
+}
+
+.formSection h3 {
+    color: var(--black);
+    font-size: 1.2rem;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--orange);
+}
+
+.anuncioForm .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.anuncioForm label {
+    color: var(--black);
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.anuncioForm input[type="text"],
+.anuncioForm input[type="number"],
+.anuncioForm input[type="file"],
+.anuncioForm select,
+.anuncioForm textarea {
+    padding: 0.75rem;
+    border: 2px solid var(--black);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: Roboto, sans-serif;
+    background-color: white;
+    color: var(--black);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.anuncioForm input[type="text"]:focus,
+.anuncioForm input[type="number"]:focus,
+.anuncioForm input[type="file"]:focus,
+.anuncioForm select:focus,
+.anuncioForm textarea:focus {
+    outline: none;
+    border-color: var(--orange);
+    box-shadow: 0 0 10px rgba(235, 94, 40, 0.3);
+}
+
+.anuncioForm select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23252422%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3e%3cpolyline points=%226 9 12 15 18 9%22%3e%3c/polyline%3e%3c/svg%3e');
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+.anuncioForm textarea {
+    resize: vertical;
+    line-height: 1.5;
+}
+
+/* Listagem de Anúncios */
+.listagemContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: var(--background-white);
+    min-height: calc(100vh - 200px);
+}
+
+.listagemContainer > h2 {
+    color: var(--black);
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+    margin-top: 1rem;
+}
+
+.anunciosListagem {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.anuncioItem {
+    background-color: white;
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.anuncioItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(235, 94, 40, 0.3);
+}
+
+.anuncioImage {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.anuncioItemInfo {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.anuncioItemHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.anuncioItemHeader h3 {
+    color: var(--black);
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.anuncioStatus {
+    background-color: #4caf50;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.anuncioStatus.anuncioStatusInativo {
+    background-color: #f44336;
+}
+
+.anuncioItemLocalizacao {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.anuncioItemPreco {
+    color: var(--orange);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 0 1rem 0;
+}
+
+.anuncioItemAcoes {
+    display: flex;
+    gap: 1rem;
+}
+
+.btnDetalhes,
+.btnEditar,
+.btnRemover,
+.btnResponder,
+.btnRemoverInteresse,
+.btnContatarAnunciante {
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btnDetalhes {
+    background-color: var(--orange);
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btnDetalhes:hover {
+    background-color: #d64620;
+    transform: translateY(-2px);
+}
+
+.btnEditar {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btnEditar:hover {
+    background-color: #1976D2;
+    transform: translateY(-2px);
+}
+
+.btnRemover,
+.btnRemoverInteresse {
+    background-color: #f44336;
+    color: white;
+}
+
+.btnRemover:hover,
+.btnRemoverInteresse:hover {
+    background-color: #d32f2f;
+    transform: translateY(-2px);
+}
+
+/* Listagem de Interesses */
+.interessesListagem {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.interesseItem {
+    background-color: white;
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interesseItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(235, 94, 40, 0.3);
+}
+
+.interesseVeiculo {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.interesseImagemVeiculo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.interesseVeiculoInfo h3 {
+    color: var(--black);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.interesseVeiculoInfo p {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.interesseDetalhes h4 {
+    color: var(--black);
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.interesseDetalhes p {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 0.3rem 0;
+}
+
+.interesseMensagemPreview {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    color: #555;
+    font-style: italic;
+}
+
+.interesseAcoes {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btnResponder {
+    background-color: var(--orange);
+    color: white;
+}
+
+.btnResponder:hover {
+    background-color: #d64620;
+    transform: translateY(-2px);
+}
