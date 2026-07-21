@@ -29,64 +29,22 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then(function (resultado) {
         var dados = resultado.dados;
-        var formId = form.getAttribute("id");
         mostrarAlerta(dados.mensagem, dados.sucesso ? "sucesso" : "erro");
-
-        if (dados.sucesso) {
-          // Login: salva sessão
-          if (formId === "formLogin" && window.__auth && dados.usuario) {
-            window.__auth.salvarSessao(dados.usuario);
-          }
-          // Cadastro: adiciona aos usuários cadastrados
-          if (formId === "formCadastro" && window.__auth) {
-            var users = window.__auth.usuariosCadastrados();
-            var formData = new FormData(form);
-            users.push({
-              id: users.length + 1,
-              nome: formData.get("nome"),
-              cpf: formData.get("cpf"),
-              email: formData.get("email"),
-              telefone: formData.get("telefone"),
-              senha: formData.get("senha"),
-            });
-            localStorage.setItem("veloCity_usuarios", JSON.stringify(users));
-          }
-          // Logout: limpa sessão
-          if (formId === "formLogout" && window.__auth) {
-            window.__auth.encerrarSessao();
-          }
-          // Redireciona
-          if (dados.redirect) {
-            window.setTimeout(function () {
-              window.location.href = dados.redirect;
-            }, 600);
-            return;
-          }
+        if (dados.sucesso && dados.redirect) {
+          window.setTimeout(function () {
+            window.location.href = dados.redirect;
+          }, 600);
+        } else if (botao) {
+          botao.disabled = false;
         }
-
-        if (botao) botao.disabled = false;
       })
       .catch(function () {
-        // Fallback local: tenta autenticar sem servidor
-        var formId = form.getAttribute("id");
-        if (formId === "formLogin" && window.__auth) {
-          var formData = new FormData(form);
-          var email = formData.get("email");
-          var senha = formData.get("senha");
-          var users = window.__auth.usuariosCadastrados();
-          var user = users.find(function (u) { return u.email === email && u.senha === senha; });
-          if (user) {
-            window.__auth.salvarSessao(user);
-            window.location.href = "/src/pages/area-restrita/principalRestrita.html";
-            return;
-          }
-        }
         mostrarAlerta("Erro de conexão. Tente novamente.", "erro");
         if (botao) botao.disabled = false;
       });
   }
 
-  ["formLogin", "formCadastro", "formInteresse", "formCriarAnuncio", "formLogout"].forEach(function (id) {
+  ["formLogin", "formCadastro", "formInteresse", "formCriarAnuncio"].forEach(function (id) {
     var form = document.getElementById(id);
     if (form) {
       form.addEventListener("submit", function (evento) {
