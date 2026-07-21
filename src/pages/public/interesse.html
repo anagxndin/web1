@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar Interesse — veloCity</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../../styles/design.css" />
+  <script src="../../scripts/scripts.js" defer></script>
+  <script src="../../scripts/forms.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
+  <header class="navbar">
+    <div class="navbar__inner">
+      <button class="navbar__toggle" id="dropdownToggle" aria-label="Menu">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <a href="index.html" class="navbar__brand"><em>veloCity</em></a>
+
+      <nav class="navbar__links" id="dropdownMenu">
+        <a href="index.html" class="navbar__link">Home</a>
+        <a href="../area-restrita/criar-anuncio.html" class="navbar__link">Anunciar</a>
+        <a href="../area-restrita/meus-anuncios.html" class="navbar__link">Meus Anúncios</a>
+        <a href="../area-restrita/principalRestrita.html" class="navbar__link">Painel</a>
+        <span id="navAuth"><a href="login.html" class="navbar__cta">Entrar</a></span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page page__main--sm" id="main-content">
+    <div class="container" style="max-width: 800px;">
+      <div class="section__title">
+        <div class="heading-2">Tenho Interesse!</div>
+        <p>Envie sua mensagem para o anunciante</p>
+      </div>
+
+      <div id="formAlert" class="alert alert--hidden" role="alert"></div>
+
+      <div class="card" style="margin-bottom: 2rem; min-height: 200px;" id="veiculoCard">
+        <div style="display:flex;flex-wrap:wrap;gap:1.5rem;padding:1.5rem;" id="veiculoContent">
+          <p style="color:var(--color-text-muted);">Carregando dados do veículo...</p>
+        </div>
+      </div>
+
+      <div class="auth__card" style="max-width:100%;">
+        <form id="formInteresse" class="auth__form" action="../../../backend/api/interesse_criar.php" method="post">
+          <input type="hidden" name="anuncio_id" id="anuncioIdInput" value="1">
+
+          <div class="form-group">
+            <label for="interesseNome" class="form-label">
+              <i class="bi bi-person"></i> Nome Completo
+            </label>
+            <input type="text" id="interesseNome" name="nome" class="form-input" placeholder="Digite seu nome completo" required>
+          </div>
+
+          <div class="form-group">
+            <label for="interesseTelefone" class="form-label">
+              <i class="bi bi-telephone"></i> Telefone
+            </label>
+            <input type="tel" id="interesseTelefone" name="telefone" class="form-input" placeholder="(11) 99999-9999" required>
+          </div>
+
+          <div class="form-group">
+            <label for="interesseMensagem" class="form-label">
+              <i class="bi bi-chat-dots"></i> Mensagem
+            </label>
+            <textarea id="interesseMensagem" name="mensagem" class="form-textarea" placeholder="Deixe sua mensagem de interesse aqui..." rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--full">
+            <i class="bi bi-send"></i> Enviar Interesse
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var params = new URLSearchParams(window.location.search);
+      var id = params.get("id") || 1;
+
+      document.getElementById("anuncioIdInput").value = id;
+
+      fetch("../../../backend/api/anuncios_listar.php")
+        .then(function (r) { return r.json(); })
+        .then(function (dados) {
+          if (!dados.sucesso || !dados.anuncios || !dados.anuncios.length) return;
+          var a = dados.anuncios.find(function (a) { return a.id == id; }) || dados.anuncios[0];
+          if (!a) return;
+
+          var foto = a.foto ? "../../" + a.foto : "../../assets/images/carLogo.png";
+          var preco = Number(a.valor).toLocaleString("pt-BR", { minimumFractionDigits: 2 });
+
+          document.getElementById("veiculoContent").innerHTML =
+            '<div style="flex:1;min-width:250px;">' +
+              '<img src="' + foto + '" alt="' + a.marca + " " + a.modelo + '" style="width:100%;height:250px;object-fit:cover;border-radius:var(--radius-lg);">' +
+            '</div>' +
+            '<div style="flex:1;min-width:250px;">' +
+              '<div class="card__header" style="margin-bottom:0.75rem;">' +
+                '<h3 class="card__title" style="font-size:1.25rem;">' + a.marca + " " + a.modelo + '</h3>' +
+                '<span class="card__badge">' + a.ano_fabricacao + '</span>' +
+              '</div>' +
+              '<p class="card__meta"><i class="bi bi-geo-alt"></i> ' + a.cidade + ", " + a.estado + '</p>' +
+              '<p class="card__price" style="font-size:1.5rem;">R$ ' + preco + '</p>' +
+            '</div>';
+        });
+    });
+  </script>
+
+  <footer class="footer">
+    &copy; 2026 veloCity — Todos os direitos reservados.
+  </footer>
+</body>
+</html>

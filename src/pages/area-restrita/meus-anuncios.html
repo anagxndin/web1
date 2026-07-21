@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Anúncios — veloCity</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../../styles/design.css" />
+  <script src="../../scripts/scripts.js" defer></script>
+  <script src="../../scripts/forms.js" defer></script>
+</head>
+<body data-restricted>
+  <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
+  <header class="navbar">
+    <div class="navbar__inner">
+      <button class="navbar__toggle" id="dropdownToggle" aria-label="Menu">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <a href="../public/index.html" class="navbar__brand"><em>veloCity</em></a>
+
+      <nav class="navbar__links" id="dropdownMenu">
+        <a href="../public/index.html" class="navbar__link">Home</a>
+        <a href="criar-anuncio.html" class="navbar__link">Anunciar</a>
+        <a href="meus-anuncios.html" class="navbar__link navbar__link--active">Meus Anúncios</a>
+        <a href="principalRestrita.html" class="navbar__link">Painel</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="toolbar__inner">
+      <nav class="toolbar__links">
+        <a href="criar-anuncio.html" class="toolbar__link">Novo Anúncio</a>
+        <a href="meus-anuncios.html" class="toolbar__link toolbar__link--active">Meus Anúncios</a>
+      </nav>
+      <form id="formLogout" action="../../../backend/api/logout.php" method="post" style="margin:0;">
+        <button type="submit" class="btn btn--sm btn--ghost" style="color:rgba(255,255,255,0.7);">
+          <i class="bi bi-box-arrow-right"></i> Sair
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <main class="page page__main--sm" id="main-content">
+    <div class="container">
+      <div class="page-header">
+        <h2 class="page-header__title">Meus Anúncios</h2>
+        <a href="criar-anuncio.html" class="btn btn--primary">
+          <i class="bi bi-plus-lg"></i> Novo Anúncio
+        </a>
+      </div>
+
+      <div class="card-list" id="meusAnunciosContainer">
+        <div class="card-list__item">
+          <img src="../../assets/images/corolla.jpg" alt="Toyota Corolla" class="card-list__image">
+          <div class="card-list__body">
+            <h3 class="card-list__title">Toyota Corolla</h3>
+            <span class="card-list__meta">Ano: 2020</span>
+            <span class="card-list__price">R$ 85.000,00</span>
+            <div class="card-list__actions">
+              <a href="detalhes.html?id=1" class="btn btn--primary btn--sm">Visualizar Detalhes</a>
+              <a href="interesses.html?anuncio_id=1" class="btn btn--outline btn--sm">Ver Interesses</a>
+              <button class="btn btn--danger btn--sm btn-excluir-anuncio" data-id="1">Excluir</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-list__item">
+          <img src="../../assets/images/onix.jpg" alt="Chevrolet Onix" class="card-list__image">
+          <div class="card-list__body">
+            <h3 class="card-list__title">Chevrolet Onix</h3>
+            <span class="card-list__meta">Ano: 2021</span>
+            <span class="card-list__price">R$ 75.000,00</span>
+            <div class="card-list__actions">
+              <a href="detalhes.html?id=2" class="btn btn--primary btn--sm">Visualizar Detalhes</a>
+              <a href="interesses.html?anuncio_id=2" class="btn btn--outline btn--sm">Ver Interesses</a>
+              <button class="btn btn--danger btn--sm btn-excluir-anuncio" data-id="2">Excluir</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-list__item">
+          <img src="../../assets/images/byd-dolphin.jpg" alt="BYD Dolphin" class="card-list__image">
+          <div class="card-list__body">
+            <h3 class="card-list__title">BYD Dolphin</h3>
+            <span class="card-list__meta">Ano: 2022</span>
+            <span class="card-list__price">R$ 95.000,00</span>
+            <div class="card-list__actions">
+              <a href="detalhes.html?id=5" class="btn btn--primary btn--sm">Visualizar Detalhes</a>
+              <a href="interesses.html?anuncio_id=5" class="btn btn--outline btn--sm">Ver Interesses</a>
+              <button class="btn btn--danger btn--sm btn-excluir-anuncio" data-id="5">Excluir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    window.CSRF_TOKEN = "mock-token-para-teste-local";
+  </script>
+  <footer class="footer">
+    &copy; 2026 veloCity — Todos os direitos reservados.
+  </footer>
+</body>
+</html>

@@ -1,22 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
   function mostrarAlerta(mensagem, tipo) {
-    const caixa = document.getElementById("formAlert");
+    var caixa = document.getElementById("formAlert");
     if (!caixa) {
       alert(mensagem);
       return;
     }
     caixa.textContent = mensagem;
-    caixa.className = "formAlert " + (tipo === "erro" ? "formAlert--erro" : "formAlert--sucesso");
-    caixa.style.display = "block";
+    caixa.classList.remove("alert--hidden", "alert--success", "alert--error", "alert--warning", "alert--info");
+    caixa.classList.add(tipo === "erro" ? "alert--error" : "alert--success");
   }
 
   function enviarFormulario(form) {
-    const botao = form.querySelector('button[type="submit"]');
+    var botao = form.querySelector('button[type="submit"]');
     if (botao) botao.disabled = true;
+
+    var temArquivo = form.querySelector('input[type="file"]');
+    var body = temArquivo ? new FormData(form) : new URLSearchParams(new FormData(form));
 
     fetch(form.getAttribute("action"), {
       method: "POST",
-      body: new FormData(form),
+      body: body,
       credentials: "same-origin",
     })
       .then(function (resposta) {
@@ -25,24 +28,66 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       })
       .then(function (resultado) {
-        const dados = resultado.dados;
+        var dados = resultado.dados;
+        var formId = form.getAttribute("id");
         mostrarAlerta(dados.mensagem, dados.sucesso ? "sucesso" : "erro");
-        if (dados.sucesso && dados.redirect) {
-          window.setTimeout(function () {
-            window.location.href = dados.redirect;
-          }, 600);
-        } else if (botao) {
-          botao.disabled = false;
+
+        if (dados.sucesso) {
+          // Login: salva sessão
+          if (formId === "formLogin" && window.__auth && dados.usuario) {
+            window.__auth.salvarSessao(dados.usuario);
+          }
+          // Cadastro: adiciona aos usuários cadastrados
+          if (formId === "formCadastro" && window.__auth) {
+            var users = window.__auth.usuariosCadastrados();
+            var formData = new FormData(form);
+            users.push({
+              id: users.length + 1,
+              nome: formData.get("nome"),
+              cpf: formData.get("cpf"),
+              email: formData.get("email"),
+              telefone: formData.get("telefone"),
+              senha: formData.get("senha"),
+            });
+            localStorage.setItem("veloCity_usuarios", JSON.stringify(users));
+          }
+          // Logout: limpa sessão
+          if (formId === "formLogout" && window.__auth) {
+            window.__auth.encerrarSessao();
+          }
+          // Redireciona
+          if (dados.redirect) {
+            window.setTimeout(function () {
+              window.location.href = dados.redirect;
+            }, 600);
+            return;
+          }
         }
+
+        if (botao) botao.disabled = false;
       })
       .catch(function () {
+        // Fallback local: tenta autenticar sem servidor
+        var formId = form.getAttribute("id");
+        if (formId === "formLogin" && window.__auth) {
+          var formData = new FormData(form);
+          var email = formData.get("email");
+          var senha = formData.get("senha");
+          var users = window.__auth.usuariosCadastrados();
+          var user = users.find(function (u) { return u.email === email && u.senha === senha; });
+          if (user) {
+            window.__auth.salvarSessao(user);
+            window.location.href = "/src/pages/area-restrita/principalRestrita.html";
+            return;
+          }
+        }
         mostrarAlerta("Erro de conexão. Tente novamente.", "erro");
         if (botao) botao.disabled = false;
       });
   }
 
-  ["formLogin", "formCadastro", "formInteresse", "formCriarAnuncio"].forEach(function (id) {
-    const form = document.getElementById(id);
+  ["formLogin", "formCadastro", "formInteresse", "formCriarAnuncio", "formLogout"].forEach(function (id) {
+    var form = document.getElementById(id);
     if (form) {
       form.addEventListener("submit", function (evento) {
         evento.preventDefault();
@@ -55,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
     botao.addEventListener("click", function () {
       if (!window.confirm(mensagemConfirmacao)) return;
 
-      const dados = new FormData();
+      var dados = new FormData();
       dados.set("csrf_token", window.CSRF_TOKEN || "");
       dados.set(campoId, botao.dataset.id);
 
@@ -81,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "anuncio_id",
       "Tem certeza que deseja excluir este anúncio? Essa ação não pode ser desfeita.",
       function (b) {
-        const card = b.closest(".col-md-4");
+        var card = b.closest(".card-list__item");
         if (card) card.remove();
       }
     );
@@ -94,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "interesse_id",
       "Tem certeza que deseja excluir esta mensagem?",
       function (b) {
-        const item = b.closest(".list-group-item");
+        var item = b.closest(".interest-item");
         if (item) item.remove();
       }
     );
