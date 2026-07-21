@@ -39,14 +39,19 @@ este projeto (não há dependências externas via Composer/Node no back-end).
 1. Crie a conta e o banco de dados MySQL pelo painel da hospedagem (elas geram
    host, nome do banco, usuário e senha — normalmente algo como
    `sqlXXX.infinityfree.com`, `if0_XXXXXXX_velocity`, etc.).
-2. Importe `backend/sql/schema.sql` pelo phpMyAdmin do painel.
+2. Importe `backend/sql/schema_infinityfree.sql` pelo phpMyAdmin do painel
+   (dentro do banco já criado, aba SQL ou Importar). Use esta versão, e não
+   `backend/sql/schema.sql`, porque o usuário do banco nessas hospedagens não
+   tem permissão para `CREATE DATABASE`/`USE` — só dentro do banco que o
+   próprio painel já criou.
 3. Edite `backend/config/config.php` com os dados gerados no passo 1
    (`DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASS`). Se o site for servido em
    HTTPS (recomendado), defina `APP_HTTPS` como `'1'`.
 4. Envie todo o projeto (via FTP ou o gerenciador de arquivos do painel) para
    a pasta pública do site (`htdocs`, `public_html` etc.), mantendo a mesma
    estrutura de pastas.
-5. Acesse `https://seusite.exemplo/src/pages/public/index.html`.
+5. Acesse `https://seusite.exemplo/` — o `index.php` da raiz redireciona
+   automaticamente para `src/pages/public/index.html`.
 
 > O GitHub Pages (usado na primeira entrega) **não roda PHP**, por isso a
 > segunda entrega precisa de uma hospedagem com suporte a PHP/MySQL como as
