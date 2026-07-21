@@ -1,0 +1,21 @@
+# Esta pasta recebe uploads de usuários (fotos de anúncios).
+# Nunca deve executar PHP nem qualquer outro script, mesmo que um arquivo
+# malicioso seja enviado com extensão disfarçada.
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>
+
+<FilesMatch "\.(php|php\d|phtml|pl|py|cgi|sh|asp|aspx)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+Options -Indexes -ExecCGI
