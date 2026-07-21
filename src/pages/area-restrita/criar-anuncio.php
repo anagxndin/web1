@@ -1,3 +1,7 @@
+<?php
+require __DIR__ . '/../../../backend/includes/guard.php';
+$token = csrf_token();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,6 +13,7 @@
     <link rel="stylesheet" href="../../styles/estilos.css">
     <link rel="stylesheet" href="../../styles/style.css">
     <script src="../../scripts/scripts.js"></script>
+    <script src="../../scripts/forms.js"></script>
 </head>
 <body class="d-flex flex-column min-vh-100">
     <header class="mainHeader">
@@ -18,13 +23,9 @@
         </div>
         <nav class="dropdownMenu" id="dropdownMenu">
             <a href="../public/index.html" class="dropdownItem">Home</a>
-            <a href="../public/login.html" class="dropdownItem">Login</a>
-            <a href="../public/cadastro.html" class="dropdownItem">Cadastro</a>
-            <a href="criar-anuncio.html" class="dropdownItem">Criar Anúncio</a>
-            <a href="meus-anuncios.html" class="dropdownItem">Listagem de Anúncios</a>
-            <a href="interesses.html" class="dropdownItem">Interesse em Veículo</a>
-            <a href="detalhes.html" class="dropdownItem">Detalhes do Anúncio</a>
-            <a href="principalRestrita.html" class="dropdownItem">Home | Vendedor</a>
+            <a href="criar-anuncio.php" class="dropdownItem">Criar Anúncio</a>
+            <a href="meus-anuncios.php" class="dropdownItem">Listagem de Anúncios</a>
+            <a href="principalRestrita.php" class="dropdownItem">Home | Vendedor</a>
         </nav>
 
         <img src="../../assets/images/carLogo.png" alt="Logo" class="logoCar"/>
@@ -32,75 +33,83 @@
 
     <div class="navbar navbar-expand-lg navbar-dark bg-velocity-nav">
         <div class="container">
-            <a class="navbar-brand logo-text" href="meus-anuncios.html">Painel</a>
+            <a class="navbar-brand logo-text" href="meus-anuncios.php">Painel</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link active" href="criar-anuncio.html">Novo Anúncio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="meus-anuncios.html">Meus Anúncios</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="criar-anuncio.php">Novo Anúncio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="meus-anuncios.php">Meus Anúncios</a></li>
                 </ul>
-                <button class="btn btn-outline-light btn-sm">Sair / Logoff</button>
+                <a class="btn btn-outline-light btn-sm" href="../../../backend/api/logout.php">Sair / Logoff</a>
             </div>
         </div>
     </div>
 
     <main class="container my-5 flex-grow-1">
+        <div id="formAlert" class="alert d-none" role="alert"></div>
         <div class="card shadow-sm border-0">
             <div class="card-header bg-white border-bottom-0 pt-4 px-4">
                 <h3 class="mb-0" style="color: var(--azul-escuro);">Criar Novo Anúncio</h3>
             </div>
             <div class="card-body p-4">
-                <form class="row g-3" id="formCriarAnuncio">
+                <form class="row g-3" id="formCriarAnuncio" action="../../../backend/api/anuncio_criar.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="csrf_token" value="<?= h($token) ?>">
                     <div class="col-md-4">
                         <label for="marca" class="form-label">Marca</label>
-                        <select class="form-select" id="marca" required>
+                        <select class="form-select" id="marca" name="marca" required>
                             <option value="">Selecione...</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="volkswagen">Volkswagen</option>
-                            <option value="chevrolet">Chevrolet</option>
-                            <option value="ford">Ford</option>
+                            <option value="Fiat">Fiat</option>
+                            <option value="Volkswagen">Volkswagen</option>
+                            <option value="Chevrolet">Chevrolet</option>
+                            <option value="Ford">Ford</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Hyundai">Hyundai</option>
+                            <option value="BYD">BYD</option>
                         </select>
                     </div>
                     <div class="col-md-4">
                         <label for="modelo" class="form-label">Modelo</label>
-                        <input type="text" class="form-control" id="modelo" required>
+                        <input type="text" class="form-control" id="modelo" name="modelo" required>
                     </div>
                     <div class="col-md-4">
                         <label for="ano" class="form-label">Ano de Fabricação</label>
-                        <input type="number" class="form-control" id="ano" min="1900" max="2027" required>
+                        <input type="number" class="form-control" id="ano" name="ano" min="1900" max="2027" required>
                     </div>
                     <div class="col-md-3">
                         <label for="cor" class="form-label">Cor</label>
-                        <input type="text" class="form-control" id="cor" required>
+                        <input type="text" class="form-control" id="cor" name="cor" required>
                     </div>
                     <div class="col-md-3">
                         <label for="km" class="form-label">Quilometragem</label>
-                        <input type="number" class="form-control" id="km" min="0" required>
+                        <input type="number" class="form-control" id="km" name="km" min="0" required>
                     </div>
                     <div class="col-md-3">
                         <label for="valor" class="form-label">Valor (R$)</label>
-                        <input type="number" class="form-control" id="valor" min="0" step="0.01" required>
+                        <input type="number" class="form-control" id="valor" name="valor" min="0" step="0.01" required>
                     </div>
                     <div class="col-md-3">
                         <label for="estado" class="form-label">Estado</label>
-                        <select class="form-select" id="estado" required>
+                        <select class="form-select" id="estado" name="estado" required>
                             <option value="">Selecione...</option>
                             <option value="MG">Minas Gerais</option>
                             <option value="SP">São Paulo</option>
                             <option value="RJ">Rio de Janeiro</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="BA">Bahia</option>
+                            <option value="PR">Paraná</option>
                         </select>
                     </div>
                     <div class="col-md-12">
                         <label for="cidade" class="form-label">Cidade</label>
-                        <input type="text" class="form-control" id="cidade" required>
+                        <input type="text" class="form-control" id="cidade" name="cidade" required>
                     </div>
                     <div class="col-md-12">
                         <label for="descricao" class="form-label">Descrição</label>
-                        <textarea class="form-control" id="descricao" rows="3" required></textarea>
+                        <textarea class="form-control" id="descricao" name="descricao" rows="3" required></textarea>
                     </div>
                     <div class="col-md-12">
                         <label for="fotos" class="form-label">Fotos (Selecione pelo menos 3)</label>
-                        <input class="form-control" type="file" id="fotos" multiple accept="image/*" required>
-                        <small class="text-muted">Pressione CTRL para selecionar múltiplos arquivos.</small>
+                        <input class="form-control" type="file" id="fotos" name="fotos[]" multiple accept="image/png, image/jpeg, image/webp" required>
+                        <small class="text-muted">Pressione CTRL para selecionar múltiplos arquivos. Máx. 5MB por foto.</small>
                     </div>
                     <div class="col-12 text-end mt-4">
                         <button type="submit" class="btn btn-velocity-primary px-4">Salvar Anúncio</button>
