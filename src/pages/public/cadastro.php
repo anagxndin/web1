@@ -1,3 +1,17 @@
+<?php
+require_once __DIR__ . '/../../../backend/includes/auth.php';
+require_once __DIR__ . '/../../../backend/includes/csrf.php';
+require_once __DIR__ . '/../../../backend/includes/functions.php';
+
+iniciar_sessao();
+
+if (usuario_logado()) {
+    header('Location: ../area-restrita/principalRestrita.php');
+    exit;
+}
+
+$token = csrf_token();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +23,7 @@
     <link rel="stylesheet" href="../../styles/cadastro.css">
     <link rel="stylesheet" href="../../styles/style.css">
     <script src="../../scripts/scripts.js"></script>
+    <script src="../../scripts/forms.js"></script>
 </head>
 <body class="pageWrapper">
     <header class="mainHeader">
@@ -18,19 +33,15 @@
       </div>
       <nav class="dropdownMenu" id="dropdownMenu">
         <a href="index.html" class="dropdownItem">Home</a>
-        <a href="../area-restrita/criar-anuncio.html" class="dropdownItem">Criar Anúncio (Restrita a usuários)</a>
-        <a href="../area-restrita/meus-anuncios.html" class="dropdownItem">Listagem de Anúncios (Restrita a usuários)</a>
-        <a href="../area-restrita/interesses.html" class="dropdownItem">Interesses Recebidos (Restrita a usuários)</a>
-    
-        <a href="../area-restrita/principalRestrita.html" class="dropdownItem">Home do Vendedor | (Restrita a usuários)</a>
+        <a href="../area-restrita/principalRestrita.php" class="dropdownItem">Home do Vendedor | (Restrita a usuários)</a>
       </nav>
 
       <img src="../../assets/images/carLogo.png" alt="Logo" class="logoCar"/>
     </header>
 
     <nav class="publicNavBar">
-        <a href="login.html" class="publicNavItem">Login</a>
-        <a href="cadastro.html" class="publicNavItem">Cadastro</a>
+        <a href="login.php" class="publicNavItem">Login</a>
+        <a href="cadastro.php" class="publicNavItem">Cadastro</a>
     </nav>
 
     <main class="mainContent">
@@ -38,17 +49,21 @@
         <div class="cadastroForm">
             <h2>Cadastro de Usuário</h2>
             <p class="cadastroSubtitle">Crie sua conta para anunciar seus veículos</p>
-            
-            <form id="formCadastro">
+
+            <div id="formAlert" class="formAlert" style="display:none;"></div>
+
+            <form id="formCadastro" action="../../../backend/api/cadastro.php" method="post">
+                <input type="hidden" name="csrf_token" value="<?= h($token) ?>">
                 <div class="formGroup">
                     <label for="nome">
                         <i class="bi bi-person"></i> Nome Completo
                     </label>
-                    <input 
-                        type="text" 
-                        id="nome" 
-                        name="nome" 
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
                         placeholder="Digite seu nome completo"
+                        required
                     >
                 </div>
 
@@ -56,11 +71,13 @@
                     <label for="cpf">
                         <i class="bi bi-person-vcard"></i> CPF
                     </label>
-                    <input 
-                        type="text" 
-                        id="cpf" 
-                        name="cpf" 
+                    <input
+                        type="text"
+                        id="cpf"
+                        name="cpf"
                         placeholder="000.000.000-00"
+                        maxlength="14"
+                        required
                     >
                 </div>
 
@@ -68,11 +85,12 @@
                     <label for="email">
                         <i class="bi bi-envelope"></i> E-mail
                     </label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
                         placeholder="seu.email@exemplo.com"
+                        required
                     >
                 </div>
 
@@ -80,11 +98,12 @@
                     <label for="telefone">
                         <i class="bi bi-telephone"></i> Telefone
                     </label>
-                    <input 
-                        type="tel" 
-                        id="telefone" 
-                        name="telefone" 
+                    <input
+                        type="tel"
+                        id="telefone"
+                        name="telefone"
                         placeholder="(11) 99999-9999"
+                        required
                     >
                 </div>
 
@@ -92,11 +111,13 @@
                     <label for="senha">
                         <i class="bi bi-lock"></i> Senha
                     </label>
-                    <input 
-                        type="password" 
-                        id="senha" 
-                        name="senha" 
-                        placeholder="Digite uma senha forte"
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        placeholder="Digite uma senha forte (mín. 8 caracteres)"
+                        minlength="8"
+                        required
                     >
                 </div>
 
@@ -106,7 +127,7 @@
             </form>
 
             <p class="cadastroLink">
-                Já possui conta? <a href="login.html">Faça login aqui</a>
+                Já possui conta? <a href="login.php">Faça login aqui</a>
             </p>
         </div>
     </div>
