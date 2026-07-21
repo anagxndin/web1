@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../styles/cards.css" />
     <link rel="stylesheet" href="../../styles/style.css" />
     <script src="../../scripts/scripts.js"></script>
+    <script src="../../scripts/index.js"></script>
   </head>
   <body id="homeBody" class="pageWrapper">
     <header class="mainHeader">
@@ -18,20 +19,17 @@
       </div>
       <nav class="dropdownMenu" id="dropdownMenu">
         <a href="index.html" class="dropdownItem">Home</a>
-        <a href="interesse.html" class="dropdownItem">Registrar interesse</a>
-        <a href="../area-restrita/criar-anuncio.html" class="dropdownItem">Criar Anúncio (Restrita a usuários)</a>
-        <a href="../area-restrita/meus-anuncios.html" class="dropdownItem">Listagem de Anúncios (Restrita a usuários)</a>
-        <a href="../area-restrita/interesses.html" class="dropdownItem">Interesses Recebidos (Restrita a usuários)</a>
-        
-        <a href="../area-restrita/principalRestrita.html" class="dropdownItem">Home do Vendedor | (Restrita a usuários)</a>
+        <a href="../area-restrita/criar-anuncio.php" class="dropdownItem">Criar Anúncio (Restrita a usuários)</a>
+        <a href="../area-restrita/meus-anuncios.php" class="dropdownItem">Listagem de Anúncios (Restrita a usuários)</a>
+        <a href="../area-restrita/principalRestrita.php" class="dropdownItem">Home do Vendedor | (Restrita a usuários)</a>
       </nav>
 
       <img src="../../assets/images/carLogo.png" alt="Logo" class="logoCar"/>
     </header>
 
     <nav class="publicNavBar">
-        <a href="login.html" class="publicNavItem">Login</a>
-        <a href="cadastro.html" class="publicNavItem">Cadastro</a>
+        <a href="login.php" class="publicNavItem">Login</a>
+        <a href="cadastro.php" class="publicNavItem">Cadastro</a>
     </nav>
 
     <main class="mainContent">
@@ -78,73 +76,8 @@
         </div>
     </div>
 
-    <div class="cards">
-        <div class="card">
-            <img src="../../assets/images/corolla.jpg" alt="Toyota Corolla" class="cardImage">
-            <div class="cardInfo">
-                <div class="cardHeader">
-                    <h3 class="cardMarcaModelo">Toyota Corolla</h3>
-                    <span class="cardAno">2020</span>
-                </div>
-                <p class="cardCidade"><i class="bi bi-geo-alt"></i> São Paulo, SP</p>
-                <p class="cardValor">R$ 85.000,00</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="../../assets/images/onix.jpg" alt="Chevrolet Onix" class="cardImage">
-            <div class="cardInfo">
-                <div class="cardHeader">
-                    <h3 class="cardMarcaModelo">Chevrolet Onix</h3>
-                    <span class="cardAno">2021</span>
-                </div>
-                <p class="cardCidade"><i class="bi bi-geo-alt"></i> Rio de Janeiro, RJ</p>
-                <p class="cardValor">R$ 75.000,00</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="../../assets/images/hyundai.jpg" alt="Hyundai" class="cardImage">
-            <div class="cardInfo">
-                <div class="cardHeader">
-                    <h3 class="cardMarcaModelo">Hyundai HB20</h3>
-                    <span class="cardAno">2019</span>
-                </div>
-                <p class="cardCidade"><i class="bi bi-geo-alt"></i> Belo Horizonte, MG</p>
-                <p class="cardValor">R$ 65.000,00</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="../../assets/images/celta.jpg" alt="Chevrolet Celta" class="cardImage">
-            <div class="cardInfo">
-                <div class="cardHeader">
-                    <h3 class="cardMarcaModelo">Chevrolet Celta</h3>
-                    <span class="cardAno">2018</span>
-                </div>
-                <p class="cardCidade"><i class="bi bi-geo-alt"></i> Brasília, DF</p>
-                <p class="cardValor">R$ 38.000,00</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="../../assets/images/byd-dolphin.jpg" alt="BYD Dolphin" class="cardImage">
-            <div class="cardInfo">
-                <div class="cardHeader">
-                    <h3 class="cardMarcaModelo">BYD Dolphin</h3>
-                    <span class="cardAno">2022</span>
-                </div>
-                <p class="cardCidade"><i class="bi bi-geo-alt"></i> Salvador, BA</p>
-                <p class="cardValor">R$ 95.000,00</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="../../assets/images/uno.jpg" alt="Fiat Uno" class="cardImage">
-            <div class="cardInfo">
-                <div class="cardHeader">
-                    <h3 class="cardMarcaModelo">Fiat Uno</h3>
-                    <span class="cardAno">2017</span>
-                </div>
-                <p class="cardCidade"><i class="bi bi-geo-alt"></i> Curitiba, PR</p>
-                <p class="cardValor">R$ 42.000,00</p>
-            </div>
-        </div>
+    <div class="cards" id="cardsContainer">
+        <p class="text-muted" id="cardsLoading">Carregando anúncios...</p>
     </div>
     </main>
 
