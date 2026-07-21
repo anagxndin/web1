@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
     link.className = "card card--hover";
     link.style.textDecoration = "none";
     link.style.color = "inherit";
-    link.href = "interesse.html?id=" + encodeURIComponent(anuncio.id);
+    link.href = "interesse.php?id=" + encodeURIComponent(anuncio.id);
 
     var img = document.createElement("img");
     img.className = "card__image";

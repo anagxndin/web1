@@ -26,80 +26,97 @@ if (!$anuncio) {
 $fotoUrl = $anuncio['foto'] ? '../../' . $anuncio['foto'] : '../../assets/images/carLogo.png';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar Interesse</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="../../styles/estilos.css">
-    <link rel="stylesheet" href="../../styles/style.css">
-    <script src="../../scripts/scripts.js"></script>
-    <script src="../../scripts/forms.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar Interesse — veloCity</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../../styles/design.css" />
+  <script src="../../scripts/scripts.js" defer></script>
+  <script src="../../scripts/forms.js" defer></script>
 </head>
-<body class="pageWrapper">
-    <header class="mainHeader">
-      <button id="dropdownToggle"><i class="bi bi-list" id="menuIcon"></i></button>
-      <div id="logo">
-        <h1><i>veloCity</i></h1>
-      </div>
-      <nav class="dropdownMenu" id="dropdownMenu">
-       <a href="index.html" class="dropdownItem">Home</a>
-        <a href="../area-restrita/principalRestrita.php" class="dropdownItem">Home | Vendedor (Restrita a usuários)</a>
+<body>
+  <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
+  <header class="navbar">
+    <div class="navbar__inner">
+      <button class="navbar__toggle" id="dropdownToggle" aria-label="Menu">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <a href="index.html" class="navbar__brand"><em>veloCity</em></a>
+
+      <nav class="navbar__links" id="dropdownMenu">
+        <a href="index.html" class="navbar__link">Home</a>
+        <a href="../area-restrita/principalRestrita.php" class="navbar__link">Home | Vendedor (Restrita a usuários)</a>
+        <span id="navAuth"><a href="login.php" class="navbar__cta">Entrar</a></span>
       </nav>
+    </div>
+  </header>
 
-      <img src="../../assets/images/carLogo.png" alt="Logo" class="logoCar"/>
-    </header>
+  <main class="page page__main--sm" id="main-content">
+    <div class="container" style="max-width: 800px;">
+      <div class="section__title">
+        <div class="heading-2">Tenho Interesse!</div>
+        <p>Envie sua mensagem para o anunciante</p>
+      </div>
 
-    <nav class="publicNavBar">
-        <a href="login.php" class="publicNavItem">Login</a>
-        <a href="cadastro.php" class="publicNavItem">Cadastro</a>
-    </nav>
+      <div id="formAlert" class="alert alert--hidden" role="alert"></div>
 
-    <main class="mainContent">
-        <div class="interesseContainer">
-            <h2>Deixe sua Mensagem de Interesse</h2>
-
-            <div id="formAlert" class="formAlert" style="display:none;"></div>
-
-            <div class="veiculoInteresse">
-                <img src="<?= h($fotoUrl) ?>" alt="<?= h($anuncio['marca'] . ' ' . $anuncio['modelo']) ?>" class="veiculoImage">
-                <div class="veiculoInfo">
-                    <div class="veiculoHeader">
-                        <h3 class="veiculoMarcaModelo"><?= h($anuncio['marca'] . ' ' . $anuncio['modelo']) ?></h3>
-                        <span class="veiculoAno"><?= (int)$anuncio['ano_fabricacao'] ?></span>
-                    </div>
-                    <p class="veiculoCidade"><i class="bi bi-geo-alt"></i> <?= h($anuncio['cidade'] . ', ' . $anuncio['estado']) ?></p>
-                    <p class="veiculoValor">R$ <?= number_format((float)$anuncio['valor'], 2, ',', '.') ?></p>
-                    <p class="veiculoDescricao"><?= h($anuncio['descricao']) ?></p>
-                </div>
+      <div class="card" style="margin-bottom: 2rem;">
+        <div style="display:flex;flex-wrap:wrap;gap:1.5rem;padding:1.5rem;">
+          <div style="flex:1;min-width:250px;">
+            <img src="<?= h($fotoUrl) ?>" alt="<?= h($anuncio['marca'] . ' ' . $anuncio['modelo']) ?>" style="width:100%;height:250px;object-fit:cover;border-radius:var(--radius-lg);">
+          </div>
+          <div style="flex:1;min-width:250px;">
+            <div class="card__header" style="margin-bottom:0.75rem;">
+              <h3 class="card__title" style="font-size:1.25rem;"><?= h($anuncio['marca'] . ' ' . $anuncio['modelo']) ?></h3>
+              <span class="card__badge"><?= (int)$anuncio['ano_fabricacao'] ?></span>
             </div>
-
-            <form class="interesseForm" id="formInteresse" action="../../../backend/api/interesse_criar.php" method="post">
-                <input type="hidden" name="csrf_token" value="<?= h($token) ?>">
-                <input type="hidden" name="anuncio_id" value="<?= (int)$anuncio['id'] ?>">
-                <div class="formGroup">
-                    <label for="interesseNome">Nome Completo</label>
-                    <input type="text" id="interesseNome" name="nome" placeholder="Digite seu nome completo" required>
-                </div>
-
-                <div class="formGroup">
-                    <label for="interesseTelefone">Telefone</label>
-                    <input type="tel" id="interesseTelefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required>
-                </div>
-
-                <div class="formGroup">
-                    <label for="interesseMensagem">Mensagem de Interesse</label>
-                    <textarea id="interesseMensagem" name="mensagem" placeholder="Deixe sua mensagem aqui..." rows="6" required></textarea>
-                </div>
-
-                <button type="submit" class="submitBtn">Enviar Interesse</button>
-            </form>
+            <p class="card__meta"><i class="bi bi-geo-alt"></i> <?= h($anuncio['cidade'] . ', ' . $anuncio['estado']) ?></p>
+            <p class="card__price" style="font-size:1.5rem;">R$ <?= number_format((float)$anuncio['valor'], 2, ',', '.') ?></p>
+            <p class="text-muted" style="margin-top:0.75rem;"><?= nl2br(h($anuncio['descricao'])) ?></p>
+          </div>
         </div>
-    </main>
+      </div>
 
-    <footer class="bg-velocity-footer simpleFooter">
-        &copy; 2026 veloCity - Todos os direitos reservados.
-    </footer>
+      <div class="auth__card" style="max-width:100%;">
+        <form id="formInteresse" class="auth__form" action="../../../backend/api/interesse_criar.php" method="post">
+          <input type="hidden" name="csrf_token" value="<?= h($token) ?>">
+          <input type="hidden" name="anuncio_id" value="<?= (int)$anuncio['id'] ?>">
+
+          <div class="form-group">
+            <label for="interesseNome" class="form-label">
+              <i class="bi bi-person"></i> Nome Completo
+            </label>
+            <input type="text" id="interesseNome" name="nome" class="form-input" placeholder="Digite seu nome completo" required>
+          </div>
+
+          <div class="form-group">
+            <label for="interesseTelefone" class="form-label">
+              <i class="bi bi-telephone"></i> Telefone
+            </label>
+            <input type="tel" id="interesseTelefone" name="telefone" class="form-input" placeholder="(11) 99999-9999" required>
+          </div>
+
+          <div class="form-group">
+            <label for="interesseMensagem" class="form-label">
+              <i class="bi bi-chat-dots"></i> Mensagem
+            </label>
+            <textarea id="interesseMensagem" name="mensagem" class="form-textarea" placeholder="Deixe sua mensagem de interesse aqui..." rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--full">
+            <i class="bi bi-send"></i> Enviar Interesse
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    &copy; 2026 veloCity — Todos os direitos reservados.
+  </footer>
 </body>
 </html>

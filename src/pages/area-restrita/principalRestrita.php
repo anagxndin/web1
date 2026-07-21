@@ -29,103 +29,97 @@ $stmt->execute([$usuario['id']]);
 $atividades = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="../../styles/estilos.css">
-    <link rel="stylesheet" href="../../styles/homeRestrita.css">
-    <link rel="stylesheet" href="../../styles/style.css">
-    <script src="../../scripts/scripts.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel — veloCity</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../../styles/design.css" />
+  <script src="../../scripts/scripts.js" defer></script>
 </head>
-<body id="homeBodyRestricted" class="d-flex flex-column min-vh-100">
-    <header class="mainHeader">
-      <button id="dropdownToggle"><i class="bi bi-list" id="menuIcon"></i></button>
-      <div id="logo">
-        <h1><i>veloCity</i></h1>
-      </div>
-      <nav class="dropdownMenu" id="dropdownMenu">
-        <a href="../public/index.html" class="dropdownItem">Home</a>
-        <a href="criar-anuncio.php" class="dropdownItem">Criar Anúncio</a>
-        <a href="meus-anuncios.php" class="dropdownItem">Listagem de Anúncios</a>
-        <a href="principalRestrita.php" class="dropdownItem">Home | Vendedor</a>
+<body>
+  <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
+  <header class="navbar">
+    <div class="navbar__inner">
+      <button class="navbar__toggle" id="dropdownToggle" aria-label="Menu">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <a href="../public/index.html" class="navbar__brand"><em>veloCity</em></a>
+
+      <nav class="navbar__links" id="dropdownMenu">
+        <a href="../public/index.html" class="navbar__link">Home</a>
+        <a href="criar-anuncio.php" class="navbar__link">Anunciar</a>
+        <a href="meus-anuncios.php" class="navbar__link">Meus Anúncios</a>
+        <a href="principalRestrita.php" class="navbar__link navbar__link--active">Painel</a>
       </nav>
-
-      <img src="../../assets/images/carLogo.png" alt="Logo" class="logoCar"/>
-    </header>
-
-    <div class="navbar navbar-expand-lg navbar-dark bg-velocity-nav">
-        <div class="container">
-            <a class="navbar-brand logo-text" href="meus-anuncios.php">Painel</a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="criar-anuncio.php">Novo Anúncio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="meus-anuncios.php">Meus Anúncios</a></li>
-                </ul>
-                <a class="btn btn-outline-light btn-sm" href="../../../backend/api/logout.php">Sair / Logoff</a>
-            </div>
-        </div>
     </div>
+  </header>
 
-    <main class="flex-grow-1">
-        <div class="principalRestritaContainer">
-            <div class="userWelcome">
-                <h2>Bem-vindo, <?= h($usuario['nome']) ?>!</h2>
-                <p class="userEmail"><?= h($usuario['email']) ?></p>
-            </div>
+  <div class="toolbar">
+    <div class="toolbar__inner">
+      <nav class="toolbar__links">
+        <a href="criar-anuncio.php" class="toolbar__link">Novo Anúncio</a>
+        <a href="meus-anuncios.php" class="toolbar__link">Meus Anúncios</a>
+      </nav>
+      <form action="../../../backend/api/logout.php" method="post" style="margin:0;">
+        <button type="submit" class="btn btn--sm btn--ghost" style="color:rgba(255,255,255,0.7);">
+          <i class="bi bi-box-arrow-right"></i> Sair
+        </button>
+      </form>
+    </div>
+  </div>
 
-            <div class="dashboardGrid">
-                <div class="dashboardCard">
-                    <div class="cardIcon">
-                        <i class="bi bi-car-front"></i>
-                    </div>
-                    <h3>Meus Anúncios</h3>
-                    <p class="cardStats"><?= $totalAnuncios ?> anúncio<?= $totalAnuncios === 1 ? '' : 's' ?> ativo<?= $totalAnuncios === 1 ? '' : 's' ?></p>
-                    <a href="meus-anuncios.php" class="cardLink">Gerenciar Anúncios</a>
-                </div>
+  <main class="page dashboard" id="main-content">
+    <div class="container">
+      <div class="dashboard__welcome">
+        <h1>Bem-vindo, <?= h($usuario['nome']) ?>!</h1>
+        <p><?= h($usuario['email']) ?></p>
+      </div>
 
-                <div class="dashboardCard">
-                    <div class="cardIcon">
-                        <i class="bi bi-bell"></i>
-                    </div>
-                    <h3>Interesses Recebidos</h3>
-                    <p class="cardStats"><?= $totalInteresses ?> interesse<?= $totalInteresses === 1 ? '' : 's' ?> no total</p>
-                    <a href="meus-anuncios.php" class="cardLink">Ver Interesses</a>
-                </div>
-
-                <div class="dashboardCard">
-                    <div class="cardIcon">
-                        <i class="bi bi-plus-circle"></i>
-                    </div>
-                    <h3>Criar Novo Anúncio</h3>
-                    <p class="cardStats">Anuncie seu veículo</p>
-                    <a href="criar-anuncio.php" class="cardLink">Novo Anúncio</a>
-                </div>
-            </div>
-
-            <div class="recentActivity">
-                <h3>Atividade Recente</h3>
-                <?php if (!$atividades): ?>
-                    <p class="text-muted">Nenhum interesse recebido ainda.</p>
-                <?php else: ?>
-                <ul class="activityList">
-                    <?php foreach ($atividades as $atividade): ?>
-                    <li>
-                        <span class="activityDate"><?= h(date('d/m/Y H:i', strtotime($atividade['criado_em']))) ?></span>
-                        <span class="activityText"><?= h($atividade['nome']) ?> manifestou interesse em <?= h($atividade['marca'] . ' ' . $atividade['modelo'] . ' ' . $atividade['ano_fabricacao']) ?></span>
-                    </li>
-                    <?php endforeach; ?>
-                </ul>
-                <?php endif; ?>
-            </div>
+      <div class="dashboard__grid">
+        <div class="dashboard__card">
+          <div class="dashboard__card-icon"><i class="bi bi-car-front"></i></div>
+          <h3>Meus Anúncios</h3>
+          <p><?= $totalAnuncios ?> anúncio<?= $totalAnuncios === 1 ? '' : 's' ?> ativo<?= $totalAnuncios === 1 ? '' : 's' ?></p>
+          <a href="meus-anuncios.php" class="btn btn--primary btn--sm">Gerenciar</a>
         </div>
-    </main>
 
-    <footer class="bg-velocity-footer text-white text-center p-3 mt-auto">
-        &copy; 2026 veloCity - Todos os direitos reservados.
-    </footer>
+        <div class="dashboard__card">
+          <div class="dashboard__card-icon"><i class="bi bi-bell"></i></div>
+          <h3>Interesses</h3>
+          <p><?= $totalInteresses ?> interesse<?= $totalInteresses === 1 ? '' : 's' ?> no total</p>
+          <a href="meus-anuncios.php" class="btn btn--outline btn--sm">Visualizar</a>
+        </div>
+
+        <div class="dashboard__card">
+          <div class="dashboard__card-icon"><i class="bi bi-plus-circle"></i></div>
+          <h3>Novo Anúncio</h3>
+          <p>Anuncie seu veículo</p>
+          <a href="criar-anuncio.php" class="btn btn--outline btn--sm">Criar</a>
+        </div>
+      </div>
+
+      <div class="activity">
+        <h3 class="activity__title">Atividade Recente</h3>
+        <?php if (!$atividades): ?>
+          <p class="text-muted">Nenhum interesse recebido ainda.</p>
+        <?php else: ?>
+          <?php foreach ($atividades as $atividade): ?>
+          <div class="activity__item">
+            <span class="activity__date"><?= h(date('d/m/Y H:i', strtotime($atividade['criado_em']))) ?></span>
+            <span class="activity__text"><?= h($atividade['nome']) ?> manifestou interesse em <?= h($atividade['marca'] . ' ' . $atividade['modelo'] . ' ' . $atividade['ano_fabricacao']) ?></span>
+          </div>
+          <?php endforeach; ?>
+        <?php endif; ?>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    &copy; 2026 veloCity — Todos os direitos reservados.
+  </footer>
 </body>
 </html>
