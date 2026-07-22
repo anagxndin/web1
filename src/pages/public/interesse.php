@@ -19,11 +19,11 @@ $stmt->execute([$anuncioId]);
 $anuncio = $stmt->fetch();
 
 if (!$anuncio) {
-    header('Location: index.html');
+    header('Location: index.php');
     exit;
 }
 
-$fotoUrl = $anuncio['foto'] ? '../../' . $anuncio['foto'] : '../../assets/images/carLogo.png';
+$fotoUrl = $anuncio['foto'] ? '../../../' . $anuncio['foto'] : '../../assets/images/carLogo.png';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -45,10 +45,10 @@ $fotoUrl = $anuncio['foto'] ? '../../' . $anuncio['foto'] : '../../assets/images
         <i class="bi bi-list"></i>
       </button>
 
-      <a href="index.html" class="navbar__brand"><em>veloCity</em></a>
+      <a href="index.php" class="navbar__brand"><em>veloCity</em></a>
 
       <nav class="navbar__links" id="dropdownMenu">
-        <a href="index.html" class="navbar__link">Home</a>
+        <a href="index.php" class="navbar__link">Home</a>
         <a href="../area-restrita/principalRestrita.php" class="navbar__link">Home | Vendedor (Restrita a usuários)</a>
         <span id="navAuth"><a href="login.php" class="navbar__cta">Entrar</a></span>
       </nav>

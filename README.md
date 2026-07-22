@@ -29,7 +29,7 @@ A forma mais simples no Windows é instalar o **XAMPP** ou o **Laragon**.
 3. Confira as credenciais em `backend/config/config.php` — os valores padrão
    (`root` sem senha, banco `velocity_db`) já funcionam com XAMPP/Laragon
    recém-instalados.
-4. Acesse `http://localhost/<pasta-do-projeto>/src/pages/public/index.html`.
+4. Acesse `http://localhost/<pasta-do-projeto>/src/pages/public/index.php`.
 
 ## Publicando em uma hospedagem gratuita (InfinityFree, Awardspace, byet.host...)
 
@@ -51,7 +51,7 @@ este projeto (não há dependências externas via Composer/Node no back-end).
    a pasta pública do site (`htdocs`, `public_html` etc.), mantendo a mesma
    estrutura de pastas.
 5. Acesse `https://seusite.exemplo/` — o `index.php` da raiz redireciona
-   automaticamente para `src/pages/public/index.html`.
+   automaticamente para `src/pages/public/index.php`.
 
 > O GitHub Pages (usado na primeira entrega) **não roda PHP**, por isso a
 > segunda entrega precisa de uma hospedagem com suporte a PHP/MySQL como as

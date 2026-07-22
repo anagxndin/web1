@@ -36,10 +36,10 @@ $anuncios = $stmt->fetchAll();
         <i class="bi bi-list"></i>
       </button>
 
-      <a href="../public/index.html" class="navbar__brand"><em>veloCity</em></a>
+      <a href="../public/index.php" class="navbar__brand"><em>veloCity</em></a>
 
       <nav class="navbar__links" id="dropdownMenu">
-        <a href="../public/index.html" class="navbar__link">Home</a>
+        <a href="../public/index.php" class="navbar__link">Home</a>
         <a href="criar-anuncio.php" class="navbar__link">Anunciar</a>
         <a href="meus-anuncios.php" class="navbar__link navbar__link--active">Meus Anúncios</a>
         <a href="principalRestrita.php" class="navbar__link">Painel</a>

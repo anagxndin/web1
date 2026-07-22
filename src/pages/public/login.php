@@ -32,10 +32,10 @@ $token = csrf_token();
         <i class="bi bi-list"></i>
       </button>
 
-      <a href="index.html" class="navbar__brand"><em>veloCity</em></a>
+      <a href="index.php" class="navbar__brand"><em>veloCity</em></a>
 
       <nav class="navbar__links" id="dropdownMenu">
-        <a href="index.html" class="navbar__link">Home</a>
+        <a href="index.php" class="navbar__link">Home</a>
         <a href="../area-restrita/principalRestrita.php" class="navbar__link">Home | Vendedor (Restrita a usuários)</a>
         <span id="navAuth"><a href="cadastro.php" class="navbar__cta">Cadastre-se</a></span>
       </nav>

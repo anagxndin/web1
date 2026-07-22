@@ -1,3 +1,10 @@
+<?php
+require_once __DIR__ . '/../../../backend/includes/auth.php';
+require_once __DIR__ . '/../../../backend/includes/functions.php';
+
+iniciar_sessao();
+$usuario = usuario_atual();
+?>
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -18,14 +25,23 @@
         <i class="bi bi-list"></i>
       </button>
 
-      <a href="index.html" class="navbar__brand"><em>veloCity</em></a>
+      <a href="index.php" class="navbar__brand"><em>veloCity</em></a>
 
       <nav class="navbar__links" id="dropdownMenu">
-        <a href="index.html" class="navbar__link navbar__link--active">Home</a>
+        <a href="index.php" class="navbar__link navbar__link--active">Home</a>
+        <?php if ($usuario): ?>
         <a href="../area-restrita/criar-anuncio.php" class="navbar__link">Anunciar</a>
         <a href="../area-restrita/meus-anuncios.php" class="navbar__link">Meus Anúncios</a>
         <a href="../area-restrita/principalRestrita.php" class="navbar__link">Painel</a>
+        <span id="navAuth" style="display:flex;align-items:center;gap:0.75rem;">
+          <span style="color:rgba(255,255,255,0.7);font-size:var(--text-sm);"><?= h($usuario['nome']) ?></span>
+          <form action="../../../backend/api/logout.php" method="post" style="margin:0;">
+            <button type="submit" class="btn btn--sm btn--ghost" style="color:rgba(255,255,255,0.7);">Sair</button>
+          </form>
+        </span>
+        <?php else: ?>
         <span id="navAuth"><a href="login.php" class="navbar__cta">Entrar</a></span>
+        <?php endif; ?>
       </nav>
     </div>
   </header>

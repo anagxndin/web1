@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
   /* ========== CARD ========== */
   function criarCard(anuncio) {
     var marcaModelo = anuncio.marca + " " + anuncio.modelo;
-    var foto = anuncio.foto ? "../../" + anuncio.foto : "../../assets/images/carLogo.png";
+    var foto = anuncio.foto ? "../../../" + anuncio.foto : "../../assets/images/carLogo.png";
 
     var link = document.createElement("a");
     link.className = "card card--hover";
