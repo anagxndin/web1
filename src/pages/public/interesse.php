@@ -11,8 +11,7 @@ $anuncioId = (int)($_GET['id'] ?? 0);
 $pdo = db();
 
 $stmt = $pdo->prepare(
-    'SELECT a.id, a.marca, a.modelo, a.ano_fabricacao, a.cidade, a.estado, a.valor, a.descricao,
-            (SELECT f.caminho FROM anuncio_fotos f WHERE f.anuncio_id = a.id ORDER BY f.id ASC LIMIT 1) AS foto
+    'SELECT a.id, a.marca, a.modelo, a.ano_fabricacao, a.cidade, a.estado, a.valor, a.descricao
      FROM anuncios a WHERE a.id = ?'
 );
 $stmt->execute([$anuncioId]);
@@ -23,7 +22,14 @@ if (!$anuncio) {
     exit;
 }
 
-$fotoUrl = $anuncio['foto'] ? '../../../' . $anuncio['foto'] : '../../assets/images/carLogo.png';
+$stmt = $pdo->prepare('SELECT caminho FROM anuncio_fotos WHERE anuncio_id = ? ORDER BY id ASC');
+$stmt->execute([$anuncioId]);
+$fotos = array_column($stmt->fetchAll(), 'caminho');
+if (!$fotos) {
+    $fotos = ['../../assets/images/carLogo.png'];
+} else {
+    $fotos = array_map(function ($f) { return '../../../' . $f; }, $fotos);
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -67,7 +73,18 @@ $fotoUrl = $anuncio['foto'] ? '../../../' . $anuncio['foto'] : '../../assets/ima
       <div class="card" style="margin-bottom: 2rem;">
         <div style="display:flex;flex-wrap:wrap;gap:1.5rem;padding:1.5rem;">
           <div style="flex:1;min-width:250px;">
-            <img src="<?= h($fotoUrl) ?>" alt="<?= h($anuncio['marca'] . ' ' . $anuncio['modelo']) ?>" style="width:100%;height:250px;object-fit:cover;border-radius:var(--radius-lg);">
+            <div class="details__gallery" style="margin-bottom:0;">
+              <div class="details__gallery-main">
+                <img src="<?= h($fotos[0]) ?>" alt="<?= h($anuncio['marca'] . ' ' . $anuncio['modelo']) ?>" style="height:250px;">
+              </div>
+              <?php if (count($fotos) > 1): ?>
+              <div class="details__gallery-thumbs">
+                <?php foreach (array_slice($fotos, 1) as $foto): ?>
+                <img src="<?= h($foto) ?>" alt="Foto do veículo">
+                <?php endforeach; ?>
+              </div>
+              <?php endif; ?>
+            </div>
           </div>
           <div style="flex:1;min-width:250px;">
             <div class="card__header" style="margin-bottom:0.75rem;">
