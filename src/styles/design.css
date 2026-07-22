@@ -1329,6 +1329,84 @@ ul, ol { list-style: none; }
 }
 
 /* ========================================
+   LIGHTBOX (galeria de fotos ampliada)
+   ======================================== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.lightbox--aberto {
+  display: flex;
+}
+
+.lightbox__image {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+}
+
+.lightbox__close,
+.lightbox__prev,
+.lightbox__next {
+  position: absolute;
+  color: white;
+  font-size: 1.5rem;
+  padding: var(--space-3);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  transition: background var(--transition);
+  display: flex;
+}
+
+.lightbox__close:hover,
+.lightbox__prev:hover,
+.lightbox__next:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.lightbox__close {
+  top: var(--space-6);
+  right: var(--space-6);
+}
+
+.lightbox__prev {
+  left: var(--space-6);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox__next {
+  right: var(--space-6);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox__counter {
+  position: absolute;
+  bottom: var(--space-6);
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: var(--text-sm);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+@media (max-width: 640px) {
+  .lightbox__prev { left: var(--space-2); }
+  .lightbox__next { right: var(--space-2); }
+  .lightbox__close { top: var(--space-3); right: var(--space-3); }
+}
+
+/* ========================================
    BACK LINK
    ======================================== */
 .back-link {

@@ -41,6 +41,7 @@ if (!$fotos) {
   <link rel="stylesheet" href="../../styles/design.css" />
   <script src="../../scripts/scripts.js" defer></script>
   <script src="../../scripts/forms.js" defer></script>
+  <script src="../../scripts/gallery.js" defer></script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
@@ -73,7 +74,7 @@ if (!$fotos) {
       <div class="card" style="margin-bottom: 2rem;">
         <div style="display:flex;flex-wrap:wrap;gap:1.5rem;padding:1.5rem;">
           <div style="flex:1;min-width:250px;">
-            <div class="details__gallery" style="margin-bottom:0;">
+            <div class="details__gallery" style="margin-bottom:0;" data-photos="<?= h(json_encode($fotos)) ?>">
               <div class="details__gallery-main">
                 <img src="<?= h($fotos[0]) ?>" alt="<?= h($anuncio['marca'] . ' ' . $anuncio['modelo']) ?>" style="height:250px;">
               </div>

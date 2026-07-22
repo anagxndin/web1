@@ -34,6 +34,7 @@ if (!$fotos) {
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <link rel="stylesheet" href="../../styles/design.css" />
   <script src="../../scripts/scripts.js" defer></script>
+  <script src="../../scripts/gallery.js" defer></script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
@@ -82,7 +83,7 @@ if (!$fotos) {
         <div class="details__body">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
             <div>
-              <div class="details__gallery">
+              <div class="details__gallery" data-photos="<?= h(json_encode($fotos)) ?>">
                 <div class="details__gallery-main">
                   <img src="<?= h($fotos[0]) ?>" alt="Foto principal">
                 </div>
