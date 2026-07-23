@@ -1,0 +1,8 @@
+# Fotos enviadas pelos usuários (não devem ir para o controle de versão)
+backend/uploads/anuncios/*
+!backend/uploads/anuncios/.gitkeep
+!backend/uploads/anuncios/.htaccess
+
+# Sistema
+.DS_Store
+Thumbs.db

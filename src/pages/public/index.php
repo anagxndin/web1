@@ -1,0 +1,91 @@
+<?php
+require_once __DIR__ . '/../../../backend/includes/auth.php';
+require_once __DIR__ . '/../../../backend/includes/functions.php';
+
+iniciar_sessao();
+$usuario = usuario_atual();
+?>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>veloCity — Encontre seu veículo ideal</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../../styles/design.css" />
+  <script src="../../scripts/scripts.js" defer></script>
+  <script src="../../scripts/index.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
+  <header class="navbar">
+    <div class="navbar__inner">
+      <button class="navbar__toggle" id="dropdownToggle" aria-label="Menu">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <a href="index.php" class="navbar__brand"><em>veloCity</em></a>
+
+      <nav class="navbar__links" id="dropdownMenu">
+        <a href="index.php" class="navbar__link navbar__link--active">Home</a>
+        <?php if ($usuario): ?>
+        <a href="../area-restrita/criar-anuncio.php" class="navbar__link">Anunciar</a>
+        <a href="../area-restrita/meus-anuncios.php" class="navbar__link">Meus Anúncios</a>
+        <a href="../area-restrita/principalRestrita.php" class="navbar__link">Painel</a>
+        <span id="navAuth" style="display:flex;align-items:center;gap:0.75rem;">
+          <span style="color:rgba(255,255,255,0.7);font-size:var(--text-sm);"><?= h($usuario['nome']) ?></span>
+          <form action="../../../backend/api/logout.php" method="post" style="margin:0;">
+            <button type="submit" class="btn btn--sm btn--ghost" style="color:rgba(255,255,255,0.7);">Sair</button>
+          </form>
+        </span>
+        <?php else: ?>
+        <span id="navAuth"><a href="login.php" class="navbar__cta">Entrar</a></span>
+        <?php endif; ?>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page page__main--sm" id="main-content">
+    <div class="container">
+      <div class="section__title">
+        <h1 class="heading-1">Encontre seu veículo ideal</h1>
+        <p>Os melhores anúncios de veículos novos e seminovos</p>
+      </div>
+
+      <div class="filters">
+        <div class="form-group">
+          <label for="filterMarca" class="form-label">Marca</label>
+          <select id="filterMarca" class="form-select">
+            <option value="">Todas as marcas</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="filterModelo" class="form-label">Modelo</label>
+          <select id="filterModelo" class="form-select" disabled>
+            <option value="">Selecione uma marca</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="filterCidade" class="form-label">Cidade</label>
+          <select id="filterCidade" class="form-select" disabled>
+            <option value="">Selecione um modelo</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid grid--cards" id="cardsContainer">
+        <div class="skeleton skeleton--image" aria-hidden="true"></div>
+        <div class="skeleton skeleton--image" aria-hidden="true"></div>
+        <div class="skeleton skeleton--image" aria-hidden="true"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    &copy; 2026 veloCity — Todos os direitos reservados.
+  </footer>
+</body>
+</html>
